@@ -2,6 +2,8 @@
 import { Hero } from './components/hero.js';
 import { Project } from './components/projects.js';
 import { Social } from './components/socials.js';
+import { Post } from './components/blog.js';
+
 
 // render hero
 const hero = new Hero("Damaris Poppe", "Software Developer", "There will be a friend description about me here.");
@@ -27,3 +29,21 @@ const socials = [
 
 Social.renderSocialLinks(socials);
 
+//Render blog posts  array
+// Consider this syntax for now
+// const blogPosts = [
+//     {
+//         title: "Understanding Big O Notation",
+//         description: "A beginner-friendly explanation of time and space complexity...",
+//         date: "2025-08-16",
+//         category: "DSA"
+//     }
+// ];
+
+const posts = [
+    new Post("My first blog post", "This is a description of a blog post.","2025-08-15", "Fun"),
+    new Post("Learning DSA", "This is a description of a blog post.", "2025-08-18", "Tech"),
+    new Post("Takeaway of System Design", "This is a description of a blog post.", "2025-08-16", "Tech"),
+];
+
+Post.renderBlogPosts(posts);
