@@ -25,7 +25,31 @@ export class Post{
         this.title = title;
         this.description = description;
         this.datePublished = datePublished;
-        this.category;
+        this.category = category;
+    }
+
+    // - Optional: add sorting by date or category
+    static SortbyCategory(posts){
+        return posts.sort((a,b) => {
+            // should lowercase because example 'T' have other lower Unicode value than 't'
+            const categoryA = a.category.toLowerCase();
+            const categoryB = b.category.toLowerCase();
+            if (categoryA < categoryB)
+                return -1
+            if (categoryB > categoryB)
+                return 1
+            return 0
+        });
+    }
+
+    static SortbyDate(posts){
+        return posts.sort((a, b) => {
+            // converting date strings to Date objects
+            const dateA = new Date(a.datePublished);
+            const dateB = new Date(b.datePublished);
+            //descending alphabetical
+            return dateA - dateB;
+        });
     }
 
     CreateElement(){
