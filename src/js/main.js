@@ -17,6 +17,14 @@ hero.render();
 //     new Project("calculator", "calculator in the web", ["react", "vue"], "https://github.com/me/portfolio", "https://github.com/me/portfolio", "./src/assets/projectImage.png")
 // ];
 
+// Running this first in broswer to verify :
+//      the endpoin, insperct the data array (promise), later to be used in Projects Class
+// fetch is bilt-in broswer API for making network request. GET is the default HTTP mehtod for fetch
+// ==================================================================
+// fetch('https://api.github.com/users/dpoppe7/repos')
+//     .then(res => res.json())
+//     .then(data => console.log(data));
+
 async function loadProjects() {
     try{
         // Calling github API
@@ -25,15 +33,37 @@ async function loadProjects() {
         if (!response.ok){
             throw new Error(`Error getting response, HTTP status:${response.status}`);
         }
-        console.log(response);
+
+        // Raw data .json() asynchronous method. 
+        // Await pauses the exeution of the funtion until the parsing is complete 
+        // JS object repos
+        const repos = await response.json(); // array of objecys [{}, {}, {}....]
+
+        // Array of Project objects
+        const projects = repos.map(repo => new Project(
+            repo.name,
+            repo.description || "No description available",
+            repo.updated_at,
+            repo.language || "Unknown",
+            repo.topics || "No topics",
+            repo.url || "No url"
+        ));
+            
+        console.log(projects); 
+      
+
+        // Render projects
+        // Calls the Render static method in Project Class, constructs it with params
+        Project.renderProjects(projects);
+
+        //console.log(repos);
 
     } catch (error){
         console.error("Error fetching projects", error);
     }
 }
 loadProjects();
-// Render projects, Call the static method once
-//Project.renderProjects(projects);
+
 
 //Render social links array
 const socials = [

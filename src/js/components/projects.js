@@ -55,8 +55,10 @@ export class Project{
         const mount = document.querySelector("#projects");
         
         if (!mount) return;  
+
         mount.innerHTML = "";
         const fragment = document.createDocumentFragment();
+        
         // a project card
         projects.forEach(p => {
             const card = p.createElement();
@@ -71,6 +73,4 @@ export class Project{
         //fragment: lightweight container that can hold DOM nodes.
            // - renderProjects() loops through data and inserts cards into DOM
     }
-
-    // - Practice: add sorting/filtering methods for practice
 }
