@@ -11,18 +11,20 @@
 //   - Optional: animated entrance on scroll
 // Methods:
 //   - renderProjects(): create and insert project cards
+//      - Upadted: loadProjects() fetches GitHub repos for my username
 //   - filterProjects(): filter by tech stack or tag (DSA-lite practice)
 // Dependencies: Dark Mode toggle class
 
 export class Project{
     // - Constructor accepts array of project objects
-    constructor(title, description, techStack, repoLink, liveDemoLink, imagePath){
-        this.title = title;
+    constructor(name, description, updated_at, language, topics, url){
+        // from github JSON response (API contract): name, description, updated_at ("2025-08-19T18:19:51Z"), language, topics[], url.
+        this.name = name;
         this.description = description;
-        this.techStack = techStack;
-        this.repoLink = repoLink;
-        this.liveDemoLink = liveDemoLink;
-        this.imagePath = imagePath;
+        this.updated_at = updated_at;
+        this.language = language;
+        this.topics = topics;
+        this.url = url;
     }
 
     // Not static because it needs access to the individual project's data (this.title, this.description, etc.)
@@ -32,17 +34,19 @@ export class Project{
         div.classList.add("project-card");
         div.innerHTML = `
             <div class="card">
-                <h3>${this.title}</h3>
+                <h3>${this.name}</h3>
                 <p>${this.description}</p>
-                <p>${this.techStack.join(', ')}</p>
-                <a href="${this.repoLink} target="_blank">Link to ${this.title}</a>
-                ${this.demoLink ? `<a href="${this.liveDemoLink}">Live Demo</a>` : ''}
-                <img src="${this.imagePath}" alt="Project Image" width="200"/>
+                <p>${this.language}</p>
+                <p>${this.updated_at}</p>
+                <p>${this.topics}</p>
+                <a href="${this.url} target="_blank">Link to Project</a>
             </div>
         `;
 
         return div;
     }
+
+    //static loadProjects
  
     // static: It belongs to the class as a utility for handling multiple projects at once. 
     //    static because it works with an array of project instances and does not need to access any one project's properties directly.       
@@ -53,7 +57,7 @@ export class Project{
         if (!mount) return;  
         mount.innerHTML = "";
         const fragment = document.createDocumentFragment();
-        //a project card
+        // a project card
         projects.forEach(p => {
             const card = p.createElement();
             fragment.appendChild(card);

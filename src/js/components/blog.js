@@ -25,7 +25,7 @@ export class Post{
         this.title = title;
         this.description = description;
         this.datePublished = datePublished;
-        this.category = category;
+        this.category = this.category;
     }
 
     // - Optional: add sorting by date or category
