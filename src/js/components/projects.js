@@ -17,12 +17,11 @@
 
 export class Project{
     // - Constructor accepts array of project objects
-    constructor(name, description, updated_at, language, topics, url){
+    constructor(name, description, updated_at, topics, url){
         // from github JSON response (API contract): name, description, updated_at ("2025-08-19T18:19:51Z"), language, topics[], url.
         this.name = name;
         this.description = description;
         this.updated_at = updated_at;
-        this.language = language;
         this.topics = topics;
         this.url = url;
     }
@@ -32,13 +31,21 @@ export class Project{
         // Creating a div element
         const div = document.createElement("div");
         div.classList.add("project-card");
+
+        // Format the date
+        const formattedDate = new Date(this.updated_at).toLocaleDateString();
+        
+        // Handle topics array
+        const topicsDisplay = Array.isArray(this.topics) && this.topics.length > 0 
+            ? this.topics.join(', ') 
+            : 'No topics';
+
         div.innerHTML = `
             <div class="card">
                 <h3>${this.name}</h3>
                 <p>${this.description}</p>
-                <p>${this.language}</p>
-                <p>${this.updated_at}</p>
-                <p>${this.topics}</p>
+                <p>${formattedDate}</p>
+                <p>${topicsDisplay}</p>
                 <a href="${this.url} target="_blank">Link to Project</a>
             </div>
         `;

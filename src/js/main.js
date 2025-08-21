@@ -28,7 +28,7 @@ hero.render();
 async function loadProjects() {
     try{
         // Calling github API
-        const response = await fetch('https://api.github.com/users/dpoppe7/repos');
+        const response = await fetch('/.netlify/functions/get-pinned-repos');
 
         if (!response.ok){
             throw new Error(`Error getting response, HTTP status:${response.status}`);
@@ -44,19 +44,15 @@ async function loadProjects() {
             repo.name,
             repo.description || "No description available",
             repo.updated_at,
-            repo.language || "Unknown",
             repo.topics || "No topics",
             repo.url || "No url"
         ));
             
-        console.log(projects); 
-      
+        //console.log(projects); 
 
         // Render projects
         // Calls the Render static method in Project Class, constructs it with params
         Project.renderProjects(projects);
-
-        //console.log(repos);
 
     } catch (error){
         console.error("Error fetching projects", error);
