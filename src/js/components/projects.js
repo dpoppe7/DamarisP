@@ -17,13 +17,13 @@
 
 export class Project{
     // - Constructor accepts array of project objects
-    constructor(name, description, updated_at, topics, url){
+    constructor(name, description, updated_at, topics, html_url){
         // from github JSON response (API contract): name, description, updated_at ("2025-08-19T18:19:51Z"), language, topics[], url.
         this.name = name;
         this.description = description;
         this.updated_at = updated_at;
         this.topics = topics;
-        this.url = url;
+        this.html_url = html_url;
     }
 
     // Not static because it needs access to the individual project's data (this.title, this.description, etc.)
@@ -46,7 +46,7 @@ export class Project{
                 <p>${this.description}</p>
                 <p>${formattedDate}</p>
                 <p>${topicsDisplay}</p>
-                <a href="${this.url} target="_blank">Link to Project</a>
+                <a href="${this.html_url} target="_blank">Link to Project</a>
             </div>
         `;
 

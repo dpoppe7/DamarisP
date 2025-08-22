@@ -44,11 +44,9 @@ async function loadProjects() {
             repo.name,
             repo.description || "No description available",
             repo.updated_at,
-            repo.topics || "No topics",
-            repo.url || "No url"
-        ));
-            
-        //console.log(projects); 
+            repo.topics || [],
+            repo.html_url || "No url found"
+        )); 
 
         // Render projects
         // Calls the Render static method in Project Class, constructs it with params

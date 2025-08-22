@@ -15,7 +15,6 @@ exports.handler = async (event, context) => {
         'Content-Type': 'application/json'
     };
 
-    // Handle preflight requests
     if (event.httpMethod === 'OPTIONS') {
         return {
             statusCode: 200,
@@ -73,9 +72,9 @@ exports.handler = async (event, context) => {
         const transformedRepos = pinnedRepos.map(repo => ({
             name: repo.name,
             description: repo.description,
-            updated_at: repo.updatedAt,
+            updated_at: repo.updated_at,
             topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
-            url: repo.url
+            url: repo.html_url
         }));
 
         // Returns the data as a JSON response
