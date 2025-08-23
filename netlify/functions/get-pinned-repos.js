@@ -1,16 +1,12 @@
 // =====================================
-// This file contains code to make GraphQL API call
+// Simple fetch approach without Octokit
 // =====================================
 
-// Import the Octokit library to make the GraphQL request
-// 'npm install @octokit/core' to add this to project's dependencies.
-import { Octokit } from "@octokit/core";;
-
 export async function handler(event, context) {
-    // Add CORS headers for local development
+    // Add CORS headers
     const headers = {
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
         'Content-Type': 'application/json'
     };
@@ -23,10 +19,9 @@ export async function handler(event, context) {
         };
     }
 
-    // Secure environment variable
+    // Get GitHub token
     const githubToken = process.env.MY_GITHUB_TOKEN;
-
-    // Verify token exists/available
+    
     if (!githubToken) {
         return {
             statusCode: 500,
@@ -35,7 +30,7 @@ export async function handler(event, context) {
         };
     }
 
-    // This is GraphQL query definition
+    // GraphQL query
     const query = `
         query {
             user(login: "dpoppe7") {
@@ -52,7 +47,7 @@ export async function handler(event, context) {
                                     }
                                 }
                             }
-                            html_url: url
+                            url
                         }
                     }
                 }
@@ -60,38 +55,55 @@ export async function handler(event, context) {
         }
     `;
 
-    // Secure GraphQL request to GitHub
     try {
-        const octokit = new Octokit({ auth: githubToken });
-        const response = await octokit.graphql(query);
+        // Use native fetch to call GitHub GraphQL API
+        const response = await fetch('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${githubToken}`,
+                'Content-Type': 'application/json',
+                'User-Agent': 'Netlify-Function'
+            },
+            body: JSON.stringify({ query })
+        });
 
-        // Pinned repos are nested in the response, extracting them
-        const pinnedRepos = response.user.pinnedItems.nodes;
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-        // Transform the data to match your expected format
+        const data = await response.json();
+
+        if (data.errors) {
+            console.error('GraphQL errors:', data.errors);
+            throw new Error(`GraphQL error: ${data.errors[0].message}`);
+        }
+
+        // Extract and transform the data
+        const pinnedRepos = data.data.user.pinnedItems.nodes;
+        
         const transformedRepos = pinnedRepos.map(repo => ({
             name: repo.name,
-            description: repo.description,
+            description: repo.description || 'No description available',
             updated_at: repo.updatedAt,
             topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
-            url: repo.html_url
+            url: repo.url
         }));
 
-        // Returns the data as a JSON response
         return {
             statusCode: 200,
             headers,
             body: JSON.stringify(transformedRepos)
         };
+
     } catch (error) {
-        console.error("GraphQL request failed:", error);
+        console.error('Request failed:', error);
         return {
             statusCode: 500,
             headers,
             body: JSON.stringify({ 
-                error: "Failed to fetch pinned repositories",
+                error: 'Failed to fetch pinned repositories',
                 details: error.message 
             })
         };
     }
-};
+}
