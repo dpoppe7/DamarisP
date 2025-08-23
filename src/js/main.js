@@ -3,7 +3,16 @@ import { Hero } from './components/hero.js';
 import { Project } from './components/projects.js';
 import { Social } from './components/socials.js';
 import { Post } from './components/blog.js';
+import { Nav } from './components/nav.js';
 
+// render nav
+const navLinks = [
+    { text: "Projects", href: "#projects" },
+    { text: "fun", href: "#fun" }
+];
+
+const nav = new Nav(navLinks, "./src/assets/icon.svg");
+nav.render();
 
 // render hero
 const hero = new Hero("Damaris Poppe", "Software Developer", "There will be a friend description about me here.");
