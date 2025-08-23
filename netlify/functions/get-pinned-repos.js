@@ -4,7 +4,7 @@
 
 // Import the Octokit library to make the GraphQL request
 // 'npm install @octokit/core' to add this to project's dependencies.
-const { Octokit } = require("@octokit/rest");;
+const { Octokit } = require("@octokit/core");
 
 export async function handler(event, context) {
     // Add CORS headers for local development
