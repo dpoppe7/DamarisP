@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "@octokit/core": "^7.0.3",
     "@octokit/graphql": "^9.0.1"
