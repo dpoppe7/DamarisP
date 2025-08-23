@@ -4,7 +4,7 @@
 
 // Import the Octokit library to make the GraphQL request
 // 'npm install @octokit/core' to add this to project's dependencies.
-const { Octokit } = require("@octokit/core");
+import { Octokit } from "@octokit/core";;
 
 export async function handler(event, context) {
     // Add CORS headers for local development
@@ -52,7 +52,7 @@ export async function handler(event, context) {
                                     }
                                 }
                             }
-                            url
+                            html_url: url
                         }
                     }
                 }
@@ -72,7 +72,7 @@ export async function handler(event, context) {
         const transformedRepos = pinnedRepos.map(repo => ({
             name: repo.name,
             description: repo.description,
-            updated_at: repo.updated_at,
+            updated_at: repo.updatedAt,
             topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
             url: repo.html_url
         }));
