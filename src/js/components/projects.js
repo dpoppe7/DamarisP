@@ -46,7 +46,7 @@ export class Project{
                 <p>${this.description}</p>
                 <p>${formattedDate}</p>
                 <p>${topicsDisplay}</p>
-                <a href="${this.html_url} target="_blank">Link to Project</a>
+                <a href="${this.html_url}" target="_blank">Link to Project</a>
             </div>
         `;
 

@@ -45,7 +45,7 @@ async function loadProjects() {
             repo.description || "No description available",
             repo.updated_at,
             repo.topics || [],
-            repo.html_url || "No url found"
+            repo.url || repo.github_url || "#"
         )); 
 
         // Render projects
@@ -54,6 +54,8 @@ async function loadProjects() {
 
     } catch (error){
         console.error("Error fetching projects", error);
+
+        
     }
 }
 loadProjects();
