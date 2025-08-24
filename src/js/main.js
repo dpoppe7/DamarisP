@@ -1,9 +1,10 @@
 // querySelector mount points and call function to render stuff
 import { Hero } from './components/hero.js';
-import { Project } from './components/projects.js';
+import { Project } from './components/project.js';
 import { Social } from './components/socials.js';
 import { Post } from './components/blog.js';
 import { Nav } from './components/nav.js';
+import { FunProject } from './components/fun.js';
 
 // render nav
 const navLinks = [
@@ -63,11 +64,47 @@ async function loadProjects() {
 
     } catch (error){
         console.error("Error fetching projects", error);
-
-        
+      
     }
 }
 loadProjects();
+
+// Load fun projects (new function following your pattern)
+async function loadFunProjects() {
+    try{
+        // Get all repos to filter for fun ones
+        const response = await fetch('/.netlify/functions/get-all-repos');
+
+        if (!response.ok){
+            throw new Error(`Error getting response, HTTP status:${response.status}`);
+        }
+
+        const repos = await response.json();
+
+        // Filter repos that have "fun" topic
+        const funRepos = repos.filter(repo => 
+            repo.topics && repo.topics.some(topic => 
+                topic.toLowerCase().includes('fun')
+            )
+        );
+
+        // Array of FunProject objects
+        const funProjects = funRepos.map(repo => new FunProject(
+            repo.name,
+            repo.description || "No description available",
+            repo.updated_at,
+            repo.topics || [],
+            repo.url || repo.github_url || "#"
+        )); 
+
+        // Render fun projects
+        FunProject.renderFunProjects(funProjects);
+
+    } catch (error){
+        console.error("Error fetching fun projects", error);
+    }
+}
+loadFunProjects();
 
 
 //Render social links array

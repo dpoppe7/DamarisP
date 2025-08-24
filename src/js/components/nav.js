@@ -17,7 +17,7 @@
 export class Nav {
     constructor(links, logo_path) {
         this.links = links;
-        this.logo_path = this.logo_path;
+        this.logo_path = logo_path;
     }
 
     // - render() method to insert HTML into the DOM
