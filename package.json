@@ -1,3 +1,16 @@
 {
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npx tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --watch\" \"netlify dev\"",
+    "build": "npx tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --minify",
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.12"
+  }
 }
