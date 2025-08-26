@@ -1,4 +1,33 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #13161E;
+/* Import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS variable */
+:root{
+    --dark-bg: #13161E;
+    --light-gray: #a2aabc;
+    --pink-accent: #edabd2;
 }
+
+/* base styles: foundational styles that apply to raw HTML*/
+@layer base {
+    body {
+        @apply bg-[#13161E] text-white;
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
+/* component styles: can be reused */
+@layer components {
+
+}
+
+/* custom utility classes, for single purpose */
+@layer utilities {
+    .bg-dark {
+        background-color: var(--dark-bg);
+    }
+} 
