@@ -29,7 +29,7 @@ export class Hero {
         const mount = document.querySelector("#hero");
         mount.innerHTML = `
             <h1>${this.name}<h1/>
-            <p>${this.tagline}<p/>
+            <h2>${this.tagline}<h2/>
             <p>${this.about}<p/>
         `;
 

@@ -15,8 +15,26 @@
 /* base styles: foundational styles that apply to raw HTML*/
 @layer base {
     body {
-        @apply bg-[#13161E] text-white;
+        @apply bg-[--dark-bg] text-white;
         font-family: 'Roboto', sans-serif;
+    }
+
+    h1 {
+        font-family: 'Jersey 15', monospace;
+        @apply text-[--pink-accent] text-4xl md:text-6xl font-normal;
+    }
+
+    h2 {
+        @apply text-[--light-gray] text-2xl md:text-4xl font-medium;
+        font-family: 'Roboto', sans-serif;
+    }
+
+     p {
+    @apply text-white text-base leading-relaxed;
+    }
+    
+    a {
+        @apply text-[#a2aabc] hover:text-[#edabd2] transition-colors duration-300;
     }
 }
 

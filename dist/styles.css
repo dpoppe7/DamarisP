@@ -557,15 +557,72 @@ video {
 }
 
 body{
-  --tw-bg-opacity: 1;
-  background-color: rgb(19 22 30 / var(--tw-bg-opacity, 1));
+  background-color: var(--dark-bg);
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  font-family: 'Jersey 15', monospace;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  color: var(--pink-accent);
+}
+
+@media (min-width: 768px){
+  h1{
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+h2{
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  color: var(--light-gray);
+}
+
+@media (min-width: 768px){
+  h2{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+p{
+  font-size: 1rem;
+  line-height: 1.5rem;
+  line-height: 1.625;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+a{
+  --tw-text-opacity: 1;
+  color: rgb(162 170 188 / var(--tw-text-opacity, 1));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+a:hover{
+  --tw-text-opacity: 1;
+  color: rgb(237 171 210 / var(--tw-text-opacity, 1));
+}
+
 .static{
   position: static;
+}
+
+.min-h-screen{
+  min-height: 100vh;
 }
 
 .lowercase{
