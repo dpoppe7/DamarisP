@@ -5,47 +5,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS variable */
-:root{
-    --dark-bg: #13161E;
-    --light-gray: #a2aabc;
+:root {
     --pink-accent: #edabd2;
+    --light-gray: #a2aabc;
+    --dark-bg: #13161E;
 }
 
-/* base styles: foundational styles that apply to raw HTML*/
-@layer base {
-    body {
-        @apply bg-[--dark-bg] text-white;
-        font-family: 'Roboto', sans-serif;
-    }
-
+/* Base styles */
+layer base {
+    /* ... other rules ... */
     h1 {
         font-family: 'Jersey 15', monospace;
-        @apply text-[--pink-accent] text-4xl md:text-6xl font-normal;
+        @apply text-[--pink-accent] text-4xl md:text-6xl font-normal; /* <-- Corrected */
     }
-
     h2 {
-        @apply text-[--light-gray] text-2xl md:text-4xl font-medium;
         font-family: 'Roboto', sans-serif;
+        @apply text-[--light-gray] text-2xl md:text-3xl font-medium; /* <-- Corrected */
     }
-
-     p {
-    @apply text-white text-base leading-relaxed;
-    }
-    
+    /* ... other rules ... */
     a {
-        @apply text-[#a2aabc] hover:text-[#edabd2] transition-colors duration-300;
+        @apply text-[--light-gray] hover:text-[--pink-accent] transition-colors duration-300; /* <-- Corrected */
     }
 }
-
-/* component styles: can be reused */
-@layer components {
-
-}
-
-/* custom utility classes, for single purpose */
-@layer utilities {
-    .bg-dark {
-        background-color: var(--dark-bg);
-    }
-} 
