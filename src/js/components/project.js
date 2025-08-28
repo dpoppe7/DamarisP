@@ -48,7 +48,7 @@ export class Project extends Repository {
                     ` : ''}
                 </div>
                                 <a href="${this.html_url}" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center font-pixel bg-pink-accent text-dark-bg px-6 py-3 rounded-lg font-normal text-lg hover:bg-[#d89bc4] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-pink-accent focus:ring-offset-2 focus:ring-offset-dark-bg w-full group-hover:scale-105 transition-transform duration-300">
+                    class="inline-flex items-center justify-center font-pixel bg-pink-accent text-dark-bg px-6 py-3 rounded-lg font-normal text-lg hover:bg-[#d89bc4] focus:outline-none focus:ring-2 focus:ring-pink-accent focus:ring-offset-2 focus:ring-offset-dark-bg w-full group-hover:scale-105 transition-transform duration-300">
                     <span>View Project</span>
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>

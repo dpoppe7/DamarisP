@@ -17,7 +17,8 @@
 // // Dependencies: Dark Mode toggle class
 
 export class Hero {
-    constructor(name, tagline, about) {
+    constructor(profile_image, name, tagline, about) {
+        this.profile_image = profile_image;
         this.name = name;
         this.tagline = tagline;
         this.about = about;
@@ -27,6 +28,7 @@ export class Hero {
         const mount = document.querySelector("#hero");
         mount.innerHTML = `
             <div class="text-center max-w-4xl mx-auto space-y-6">
+                <img class="rounded-full w-8 h-8" src="${this.profile_image}" alt="profile image">
                 <h1 class="font-pixel text-pink-accent text-5xl md:text-7xl lg:text-8xl font-normal animate-pulse">
                     ${this.name}
                 </h1>
@@ -43,6 +45,7 @@ export class Hero {
             </div>
         `;
     }
+
 
     animate(){
         const mount = document.querySelector("#hero h1");

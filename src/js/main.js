@@ -5,6 +5,7 @@ import { Social } from './components/socials.js';
 import { Post } from './components/blog.js';
 import { Nav } from './components/nav.js';
 import { FunProject } from './components/fun.js';
+import { Sparkles } from './components/sparkles.js';
 
 // render nav
 const navLinks = [
@@ -15,8 +16,13 @@ const navLinks = [
 const nav = new Nav(navLinks, "./src/assets/icon.svg");
 nav.render();
 
+
+// render the sparkles background
+const sparkles = new Sparkles();
+sparkles.render();
+
 // render hero
-const hero = new Hero("Damaris Poppe", "Software Developer", "There will be a friend description about me here.");
+const hero = new Hero("./src/assets/images/main_profile.JPG","Damaris Poppe", "Software Developer", "There will be a friend description about me here.");
 hero.render();
 
 
