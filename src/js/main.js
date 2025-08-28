@@ -22,7 +22,13 @@ const sparkles = new Sparkles();
 sparkles.render();
 
 // render hero
-const hero = new Hero("./src/assets/images/main_profile.JPG","Damaris Poppe", "Software Developer", "There will be a friend description about me here.");
+const hero = new Hero(
+    "./src/assets/images/main_profile.JPG",
+    "Damaris Poppe", 
+    "Software Developer", 
+    "There will be a friend description about me here.",
+    "./src/assets/images/button.png"
+);
 hero.render();
 
 
