@@ -44,9 +44,6 @@ export class Hero {
                         style="background-image: url('${this.button_image}'); background-size: 100% 100%;">
                             <span class="font-normal text-white text-lg">View My Work</span>
                         </button>
-                        <button class="font-pixel border-2 border-light-gray text-light-gray px-6 py-3 rounded-lg font-normal text-lg hover:border-pink-accent hover:text-pink-accent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-light-gray focus:ring-offset-2 focus:ring-offset-dark-bg">
-                            Get In Touch
-                        </button>
                     </div>
                 </div>
             </div>
