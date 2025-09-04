@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Pixelify+Sans&family=Roboto:wght@300;400;500;700&display=swap');
 
 /* Import google fonts */
 
@@ -569,6 +569,31 @@ a:hover{
   color: rgb(237 171 210 / var(--tw-text-opacity, 1));
 }
 
+h1{
+  font-family: "Jersey 15", monospace;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(237 171 210 / var(--tw-text-opacity, 1));
+}
+
+h2{
+  font-family: "Jersey 15", monospace;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(162 170 188 / var(--tw-text-opacity, 1));
+}
+
+p{
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
 .\!container{
   width: 100% !important;
 }
@@ -627,9 +652,15 @@ a:hover{
   }
 }
 
+/* Nav Bar */
+
 /* Main nav container: horizontal on mobile, vertical on desktop right */
 
 .nav-container{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   z-index: 50;
   margin-left: auto;
   margin-right: auto;
@@ -640,14 +671,13 @@ a:hover{
   background-color: transparent;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 768px){
   .nav-container{
-    position: fixed;
-    right: 0.25rem;
+    right: 1.25rem;
     top: 0px;
     height: 100vh;
     width: auto;
@@ -817,6 +847,119 @@ a:hover{
   text-align: left;
 }
 
+/* Hero */
+
+.hero-container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-container > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.img-wrapper{
+  position: relative;
+  height: 13rem;
+  width: 13rem;
+}
+
+@media (min-width: 768px){
+  .img-wrapper{
+    height: 20rem;
+    width: 20rem;
+  }
+}
+
+.border-spin{
+  pointer-events: none;
+  position: absolute;
+  inset: 0px;
+  z-index: 20;
+  height: 13rem;
+  width: 13rem;
+}
+
+@keyframes spinGradient{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.border-spin{
+  animation: spinGradient 2s linear infinite;
+  border-radius: 9999px;
+}
+
+@media (min-width: 768px){
+  .border-spin{
+    height: 20rem;
+    width: 20rem;
+  }
+}
+
+.border-spin {
+  background: conic-gradient(from 0deg, pink, rgb(255, 255, 127), pink);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black 0);
+}
+
+.hero-profile-img{
+  position: relative;
+  z-index: 10;
+  height: 13rem;
+  width: 13rem;
+  border-radius: 9999px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (min-width: 768px){
+  .hero-profile-img{
+    height: 20rem;
+    width: 20rem;
+  }
+}
+
+.button-custom{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-family: "Jersey 15", monospace;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.button-custom:hover{
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.button-custom {
+  background-image: url('/src/assets/images/button.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 .pointer-events-none{
   pointer-events: none;
 }
@@ -829,20 +972,12 @@ a:hover{
   position: absolute;
 }
 
-.relative{
-  position: relative;
-}
-
 .inset-0{
   inset: 0px;
 }
 
 .z-0{
   z-index: 0;
-}
-
-.z-10{
-  z-index: 10;
 }
 
 .mb-12{
@@ -1011,7 +1146,7 @@ a:hover{
 
 .bg-dark-bg{
   --tw-bg-opacity: 1;
-  background-color: rgb(19 22 30 / var(--tw-bg-opacity, 1));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
 .bg-pink-accent{
@@ -1048,7 +1183,7 @@ a:hover{
 }
 
 .font-pixel{
-  font-family: Jersey 15, monospace;
+  font-family: "Jersey 15", monospace;
 }
 
 .font-roboto{
@@ -1102,7 +1237,7 @@ a:hover{
 
 .text-dark-bg{
   --tw-text-opacity: 1;
-  color: rgb(19 22 30 / var(--tw-text-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .text-light-gray{
@@ -1147,10 +1282,6 @@ a:hover{
   transition-duration: 300ms;
 }
 
-/* Profile image - allow Tailwind classes to control size in hero component*/
-
-/* Content images */
-
 :root {
   --pink-accent: #edabd2;
   --light-gray: #a2aabc;
@@ -1158,6 +1289,12 @@ a:hover{
 }
 
 /* Base styles */
+
+@media (max-width: 768px) {
+  .nav-container {
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.896), transparent);
+  }
+}
 
 .hover\:scale-105:hover{
   --tw-scale-x: 1.05;
@@ -1200,7 +1337,7 @@ a:hover{
 }
 
 .focus\:ring-offset-dark-bg:focus{
-  --tw-ring-offset-color: #13161E;
+  --tw-ring-offset-color: #000000;
 }
 
 .group:hover .group-hover\:scale-105{

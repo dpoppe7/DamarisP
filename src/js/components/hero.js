@@ -16,38 +16,33 @@
 // Dependencies: Dark Mode toggle class
 
 export class Hero {
-    constructor(profile_image, name, tagline, about, button_image) {
+    constructor(profile_image, name, tagline) {
         this.profile_image = profile_image;
         this.name = name;
         this.tagline = tagline;
-        this.about = about;
     }
 
     render() {
         const mount = document.querySelector("#hero");
         mount.innerHTML = `
-            <div class="">
-                <div class="">
-                    <img class="" src="${this.profile_image}" alt="profile image" style="max-width: 24% !important;">
-                    <h1 class="">
-                        ${this.name}
-                    </h1>
-                    <h2 class="">
-                        ${this.tagline}
-                    </h2>
-                    <p class="">
-                        ${this.about}
-                    </p>
-                    <div class="">
-                        <button class=""
-                                style="background-image: url('./src/assets/images/button.png'); background-size: 100% 100%;">
-                            <span class="font-normal text-white text-lg">View My Work</span>
-                        </button>
-                        <button class="">
-                            Get In Touch
-                        </button>
-                    </div>
+            <div class="hero-container">
+                <div class="img-wrapper">
+                <div class="border-spin"></div>
+                <img class="hero-profile-img" src="${this.profile_image}" alt="profile image">
                 </div>
+                
+                
+                <h1>
+                    ${this.name}
+                </h1>
+                <h2>
+                    ${this.tagline}
+                </h2>
+
+                <button class="button-custom">
+                    View My Work
+                </button>
+
             </div>
         `;
     }

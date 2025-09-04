@@ -1,5 +1,5 @@
 /* Import google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Pixelify+Sans&family=Roboto:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,16 +13,7 @@
 
 @layer utilities {
 
-    /* Profile image - allow Tailwind classes to control size in hero component*/
-    .img-profile {
-        max-width:  none !important;
-    }
-    
-    /* Content images */
-    .img-content {
-        max-width: 60% !important;
-        height: auto !important;
-    }
+
 }
 
 /* Base styles */
@@ -30,15 +21,29 @@
     a {
         @apply text-light-gray hover:text-pink-accent transition-colors duration-300;
     }
+
+    h1 {
+        @apply text-pink-accent font-medium text-5xl font-pixel;
+    }
+
+    h2 {
+        @apply text-light-gray font-normal text-2xl font-pixel;
+    }
+
+    p {
+        @apply text-white font-normal font-roboto;
+    }
 }
 
 @layer components {
+    /* Nav Bar */
     /* Main nav container: horizontal on mobile, vertical on desktop right */
     .nav-container{
-        @apply flex items-center justify-between px-6 py-10 bg-transparent max-w-6xl mx-auto
-               md:fixed md:right-1 md:top-0 md:h-screen md:flex-col md:justify-start md:items-end 
-               md:w-auto md:max-w-none md:px-4 md:py-8 z-50;
+        @apply fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-transparent max-w-6xl mx-auto
+            md:right-5 md:top-0 md:h-screen md:flex-col md:justify-start md:items-end
+            md:w-auto md:max-w-none md:px-4 md:py-8;
     }
+   
 
     .nav-logo {
         @apply w-10 h-10 md:w-12 md:h-12 flex-shrink-0 hover:scale-110 transition-transform duration-300;
@@ -77,5 +82,38 @@
 
     .mobile-links .nav-link {
         @apply block px-4 py-3 text-left w-full;
+    }
+
+    /* Hero */
+    .hero-container {
+        @apply flex flex-col items-center justify-center space-y-8 min-h-screen;
+    }
+
+    .img-wrapper {
+        @apply relative w-52 h-52 md:w-80 md:h-80;
+    }
+
+    .border-spin {
+        @apply w-52 h-52 md:w-80 md:h-80 absolute inset-0 rounded-full pointer-events-none animate-spin-gradient z-20;
+            background: conic-gradient(from 0deg, pink, rgb(255, 255, 127), pink);
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black 0);
+            mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black 0);
+    }
+
+    .hero-profile-img {
+        @apply w-52 h-52 md:w-80 md:h-80 object-cover rounded-full relative z-10;
+    }
+
+    .button-custom {
+        @apply flex items-center justify-center px-6 py-3 shadow-md font-pixel text-2xl text-white 
+               transition-transform duration-300 hover:scale-105 bg-transparent;
+        background-image: url('/src/assets/images/button.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+}
+@media (max-width: 768px) {
+    .nav-container {
+        background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0), rgba(0, 0, 0, 0.896), transparent);
     }
 }

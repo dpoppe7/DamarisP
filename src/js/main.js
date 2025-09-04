@@ -7,6 +7,10 @@ import { Nav } from './components/nav.js';
 import { FunProject } from './components/fun.js';
 import { Sparkles } from './components/sparkles.js';
 
+// render the sparkles background
+const sparkles = new Sparkles();
+sparkles.render();
+
 // render nav
 const navLinks = [
     { text: "Projects", page: "#projects" },
@@ -16,17 +20,11 @@ const navLinks = [
 const nav = new Nav(navLinks);
 nav.render();
 
-
-// render the sparkles background
-const sparkles = new Sparkles();
-sparkles.render();
-
 // render hero
 const hero = new Hero(
     "./src/assets/images/main_profile.JPG",
     "Damaris Poppe", 
-    "Software Developer", 
-    "There will be a friend description about me here."
+    "Software Developer | Front-end/Back-end | Open Source Contributor"
 );
 hero.render();
 
