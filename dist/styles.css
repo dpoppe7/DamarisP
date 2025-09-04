@@ -671,20 +671,18 @@ p{
   background-color: transparent;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 @media (min-width: 768px){
   .nav-container{
     right: 1.25rem;
     top: 0px;
-    height: 100vh;
     width: auto;
     max-width: none;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: flex-start;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 2rem;

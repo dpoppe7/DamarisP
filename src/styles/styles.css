@@ -39,8 +39,8 @@
     /* Nav Bar */
     /* Main nav container: horizontal on mobile, vertical on desktop right */
     .nav-container{
-        @apply fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-transparent max-w-6xl mx-auto
-            md:right-5 md:top-0 md:h-screen md:flex-col md:justify-start md:items-end
+        @apply fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-8 bg-transparent max-w-6xl mx-auto
+            md:right-5 md:top-0 md:flex-col md:items-end
             md:w-auto md:max-w-none md:px-4 md:py-8;
     }
    
