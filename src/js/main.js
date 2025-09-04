@@ -9,11 +9,11 @@ import { Sparkles } from './components/sparkles.js';
 
 // render nav
 const navLinks = [
-    { text: "Projects", href: "#projects" },
-    { text: "fun", href: "#fun" }
+    { text: "Projects", page: "#projects" },
+    { text: "fun", page: "#fun" }
 ];
 
-const nav = new Nav(navLinks, "./src/assets/icon.svg");
+const nav = new Nav(navLinks);
 nav.render();
 
 
@@ -26,8 +26,7 @@ const hero = new Hero(
     "./src/assets/images/main_profile.JPG",
     "Damaris Poppe", 
     "Software Developer", 
-    "There will be a friend description about me here.",
-    "./src/assets/images/button.png"
+    "There will be a friend description about me here."
 );
 hero.render();
 

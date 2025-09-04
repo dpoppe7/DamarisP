@@ -30,14 +30,14 @@ export class Project extends Repository {
                 <h3 class="font-roboto text-white text-xl font-semibold mb-3">
                     ${this.name}
                 </h3>
-                                <p class="font-roboto text-white text-base leading-relaxed mb-4 flex-grow">
+                    <p class="font-roboto text-white text-base leading-relaxed mb-4 flex-grow">
                     ${this.description}
                 </p>
-                                <div class="space-y-2 mb-4">
+                    <div class="space-y-2 mb-4">
                     <p class="font-roboto text-light-gray text-sm">
                         <span class="font-medium">Last Updated:</span> ${this.getFormattedDate()}
                     </p>
-                                        ${this.topics && this.topics.length > 0 ? `
+                         ${this.topics && this.topics.length > 0 ? `
                         <div class="flex flex-wrap gap-2">
                             ${this.topics.map(topic => `
                                 <span class="bg-border-color text-light-gray px-2 py-1 rounded-md text-xs font-medium border border-[#3a3f4e]">

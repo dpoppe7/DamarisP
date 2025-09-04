@@ -28,16 +28,15 @@ export class Sparkles {
       // Get a random hex code directly from the array
       const colorHex = this.colors[Math.floor(Math.random() * this.colors.length)];
 
-      // Apply the common Tailwind classes
       sparkle.className = `absolute rounded-full animate-fade-in-out`;
       
-      // Use inline styles to apply the colors directly from the hex code
+      // inline styles to apply the colors directly from the hex code
       sparkle.style.backgroundColor = colorHex;
       sparkle.style.width = `${size}px`;
       sparkle.style.height = `${size}px`;
-      sparkle.style.top = `${Math.random() * 100}vh`;
-      sparkle.style.left = `${Math.random() * 100}vw`;
-      sparkle.style.animationDelay = `${Math.random() * 5}s`;
+      sparkle.style.top = `${Math.random() * 100}vh`; //position from top
+      sparkle.style.left = `${Math.random() * 100}vw`; //position from left
+      sparkle.style.animationDelay = `${Math.random() * 5}s`; //animation
       
       // Also apply the shadow color using the hex code
       sparkle.style.boxShadow = `0 0 ${size * 2}px ${colorHex}`;
