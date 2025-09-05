@@ -31,7 +31,7 @@ nav.render();
 const hero = new Hero(
     "./src/assets/images/main_profile.JPG",
     "Damaris Poppe", 
-    "Software Developer | Front-end/Back-end | Open Source Contributor"
+    "Software Developer | Front-end/Back-end"
 );
 hero.render();
 

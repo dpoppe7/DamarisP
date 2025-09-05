@@ -1,5 +1,5 @@
 /* Import google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Pixelify+Sans&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Pixelify+Sans&family=Roboto:wght@400&family=Inria+Sans:wght@400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +19,7 @@
 /* Base styles */
 @layer base {
     a {
-        @apply text-light-gray hover:text-pink-accent transition-colors duration-300;
+        @apply hover:text-pink-accent transition-colors duration-300;
     }
 
     h1 {
@@ -44,41 +44,48 @@
 
         /* --- DESKTOP --- */
         @apply lg:fixed lg:top-auto lg:right-0 lg:left-auto lg:h-screen lg:w-36 
-            lg:flex lg:flex-col lg:justify-center lg:items-center
+            lg:flex lg:flex-col lg:justify-between lg:items-center
             lg:bg-transparent lg:shadow-none;
     }
    
     /* Desktop logo: stick to top of .nav-container */
     .nav-logo {
-        @apply hidden lg:flex lg:w-12 lg:h-12 lg:justify-center flex-shrink-0 lg:top-8
+        @apply hidden lg:flex lg:w-12 lg:h-12 lg:justify-center flex-shrink-0 lg:top-8 lg:mt-8
             hover:scale-110 transition-transform duration-300;
     }
 
-    .nav-line-decor {
-        @apply hidden lg:block lg:w-px lg:bg-light-gray flex-1 min-h-8 max-h-16;
+    .nav-line-base {
+        @apply hidden lg:block lg:w-px lg:bg-dim-gray;
+    }
+
+    /* Decorative lines that fill the space */
+    .nav-line-decor-top,
+    .nav-line-decor-middle {
+        @apply nav-line-base flex-1;
+    }
+
+    .nav-line-decor-bottom {
+        @apply nav-line-base lg:min-h-8;
     }
 
     .nav-links {
-        @apply hidden lg:flex lg:flex-col lg:items-end lg:space-y-4 list-none lg:pr-14;
+        @apply hidden lg:flex lg:flex-col lg:items-end lg:space-y-4 list-none lg:pr-16;
     }
     
     .nav-link {
-        @apply text-gray-300 hover:text-pink-accent font-medium text-lg
+        @apply text-dim-gray hover:text-pink-accent font-medium text-lg font-inria uppercase
         transition-colors duration-300 cursor-pointer bg-transparent border-0;
     }
 
     .social-links {
-        @apply hidden lg:flex lg:flex-col lg:items-end lg:space-y-3 list-none;
+        @apply hidden lg:flex lg:flex-col lg:items-end lg:space-y-3 list-none lg:mb-1;
     }
     
     .social-link {
-        @apply text-gray-300 hover:text-pink-accent transition-colors duration-300 
+        @apply text-dim-gray hover:text-pink-accent transition-colors duration-300 
         cursor-pointer bg-transparent text-4xl;
     }
 
-    
-
-    
     /* Hero */
     .hero-container {
         @apply flex flex-col items-center justify-center space-y-8 min-h-screen;

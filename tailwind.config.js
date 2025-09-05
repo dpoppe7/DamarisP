@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         'pink-accent': '#edabd2',
         'light-gray': '#a2aabc',
+        'dim-gray': '#686868',
         'dark-bg': '#000000',
         'card-bg': '#1a1f2e',
         'border-color': '#2a2f3e',
@@ -25,7 +26,8 @@ module.exports = {
       },
       fontFamily: {
         'pixel': ['"Jersey 15"', 'monospace'],
-        'roboto': ['Roboto', 'sans-serif']
+        'roboto': ['Roboto', 'sans-serif'],
+        'inria': ['"Inria Sans"', 'sans-serif']
       },
       animation: {
         'fade-in-out': 'fadeInOut 5s ease-in-out infinite',

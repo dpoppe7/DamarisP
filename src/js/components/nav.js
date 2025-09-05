@@ -32,7 +32,7 @@ export class Nav {
           </div>
 
           <!-- Vertical line -->
-          <div class="nav-line-decor"></div>
+          <div class="nav-line-decor-top"></div>
 
           <!-- Navigation Links: Hidden on mobile -->
           <div> 
@@ -46,7 +46,7 @@ export class Nav {
           </div>
 
           <!-- Vertical line -->
-          <div class="nav-line-decor"></div>
+          <div class="nav-line-decor-middle"></div>
 
           <!-- Social Links: Icons always visible -->
           <div>
@@ -62,7 +62,7 @@ export class Nav {
           </div>
 
           <!-- Vertical line -->
-          <div class="nav-line-decor"></div>
+          <div class="nav-line-decor-bottom"></div>
         </div>
       `;
     }
