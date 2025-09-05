@@ -50,7 +50,7 @@
    
     /* Desktop logo: stick to top of .nav-container */
     .nav-logo {
-        @apply hidden lg:flex lg:w-12 lg:h-12 lg:justify-center flex-shrink-0 lg:top-8 lg:mt-8
+        @apply hidden lg:flex lg:w-12 lg:h-12 lg:justify-center flex-shrink-0 lg:top-8 lg:mt-8 lg:mb-2
             hover:scale-110 transition-transform duration-300;
     }
 
@@ -78,12 +78,13 @@
     }
 
     .social-links {
-        @apply hidden lg:flex lg:flex-col lg:items-end lg:space-y-3 list-none lg:mb-1;
+        @apply flex space-x-5 mr-4
+        lg:space-x-0  lg:flex-col lg:items-end lg:space-y-5 list-none lg:mb-1 lg:mt-2;
     }
     
     .social-link {
         @apply text-dim-gray hover:text-pink-accent transition-colors duration-300 
-        cursor-pointer bg-transparent text-4xl;
+        cursor-pointer bg-transparent;
     }
 
     /* Hero */
