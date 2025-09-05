@@ -51,7 +51,7 @@ hero.render();
 //     .then(res => res.json())
 //     .then(data => console.log(data));
 
-async function loadProjects() {
+async function loadPinnedProjects() {
     try{
         // Calling github API
         const response = await fetch('/.netlify/functions/get-pinned-repos');
@@ -76,7 +76,6 @@ async function loadProjects() {
 
         // Render projects
         // Calls the Render static method in Project Class, constructs it with params
-        // Project.renderProjects(projects);
         Project.renderSpotlightProjects(projects);
 
     } catch (error){
@@ -84,7 +83,6 @@ async function loadProjects() {
       
     }
 }
-loadProjects();
 
 // Load fun projects (new function following your pattern)
 async function loadFunProjects() {
@@ -126,7 +124,7 @@ async function loadFunProjects() {
 // Load projects 
 async function initializeProjects() {
     // pinned projects (spotlight carousel)
-    await loadProjects();
+    await loadPinnedProjects();
     await loadFunProjects();
 
 }

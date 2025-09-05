@@ -54,7 +54,7 @@ export class Nav {
               ${this.socialData.map(social => `
                 <li class="social-link">
                   <a href="${social.link}" target="_blank">
-                    <i class="fab fa-${social.platform.toLowerCase()} text-xl"></i>
+                    <i class="fab fa-${social.platform.toLowerCase()} text-2xl"></i>
                   </a>
                 </li>
               `).join('')}
