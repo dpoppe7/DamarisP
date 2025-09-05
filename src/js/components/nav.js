@@ -15,70 +15,55 @@
 // // Dependencies: Dark Mode toggle class
 
 export class Nav {
-    constructor(links) {
-      // { text: "Projects", href: "#projects" }
-      this.links = links;
-    }
-
-    _generateLinksHtml(isMobile = false) {
-      return this.links.map(link => `
-          <li>
-            <button data-page="${link.page}" class="nav-link">
-                ${link.text}
-            </button>
-          </li>
-      `).join('');
+    constructor(navLinks, socialData) {
+      this.navLinks = navLinks;
+      this.socialData = socialData;
     }
 
     render() {
       const mount = document.querySelector("#nav");
       mount.innerHTML = `
-      <div class="nav-container">
-        <div> 
-          <a href="#" class="nav-logo">
-            <img src="./src/assets/icon.svg" alt="Home" class="nav-logo"/>
-          </a>
-        </div>
-
-        <div> 
-          <ul class="nav-links">
-            ${this.links.map(link => `
-              <li class="nav-link">
-                <a href="${link.page}">${link.text}</a>
-              </li>
-            `).join('')}
-          </ul> 
-        </div>
-         
-        <div class="mobile-menu-wrapper">
-          <button class="mobile-menu-btn" id="mobile-menu-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="2" 
-            stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-            </svg>
-          </button>
-            
-          <div class="mobile-menu hidden" id="mobile-menu">
-            <ul class="mobile-links">
-                ${this._generateLinksHtml(true)}
-            </ul>
+        <div class="nav-container">
+          <!-- Logo Icon: Hidden on mobile, redirects to hero page -->
+          <div> 
+            <a href="#" class="nav-logo">
+              <img src="./src/assets/icon.svg" alt="Home"/>
+            </a>
           </div>
-        </div>
-        
-      </div>
-      `;
-      this.addEventListeners();
-    }
 
-    addEventListeners() {
-      // Mobile menu toggle
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (mobileMenuBtn && mobileMenu) {
-          mobileMenuBtn.addEventListener('click', () => {
-              mobileMenu.classList.toggle('hidden');
-          });
-      }
+          <!-- Vertical line -->
+          <div class="nav-line-decor"></div>
+
+          <!-- Navigation Links: Hidden on mobile -->
+          <div> 
+            <ul class="nav-links">
+              ${this.navLinks.map(link => `
+                <li class="nav-link">
+                  <a href="${link.page}">${link.text}</a>
+                </li>
+              `).join('')}
+            </ul> 
+          </div>
+
+          <!-- Vertical line -->
+          <div class="nav-line-decor"></div>
+
+          <!-- Social Links: Icons always visible -->
+          <div>
+            <ul class="social-links">
+              ${this.socialData.map(social => `
+                <li class="social-link">
+                  <a href="${social.link}" target="_blank">
+                    <i class="fab fa-${social.platform.toLowerCase()} text-xl"></i>
+                  </a>
+                </li>
+              `).join('')}
+            </ul> 
+          </div>
+
+          <!-- Vertical line -->
+          <div class="nav-line-decor"></div>
+        </div>
+      `;
     }
 }

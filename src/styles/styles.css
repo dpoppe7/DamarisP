@@ -38,52 +38,47 @@
 @layer components {
     /* Nav Bar */
     /* Main nav container: horizontal on mobile, vertical on desktop right */
-    .nav-container{
-        @apply fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-8 bg-transparent max-w-6xl mx-auto
-            md:right-5 md:top-0 md:flex-col md:items-end
-            md:w-auto md:max-w-none md:px-4 md:py-8;
+    .nav-container {
+        @apply fixed top-0 left-0 right-0 h-16 flex justify-end items-center px-4 
+        bg-black z-50 shadow-lg; 
+
+        /* --- DESKTOP --- */
+        @apply lg:fixed lg:top-auto lg:right-0 lg:left-auto lg:h-screen lg:w-36 
+            lg:flex lg:flex-col lg:justify-center lg:items-center
+            lg:bg-transparent lg:shadow-none;
     }
    
-
+    /* Desktop logo: stick to top of .nav-container */
     .nav-logo {
-        @apply w-10 h-10 md:w-12 md:h-12 flex-shrink-0 hover:scale-110 transition-transform duration-300;
+        @apply hidden lg:flex lg:w-12 lg:h-12 lg:justify-center flex-shrink-0 lg:top-8
+            hover:scale-110 transition-transform duration-300;
     }
 
-    /* Desktop links container */
+    .nav-line-decor {
+        @apply hidden lg:block lg:w-px lg:bg-light-gray flex-1 min-h-8 max-h-16;
+    }
+
     .nav-links {
-        @apply hidden md:flex md:flex-col md:items-end md:space-y-6 md:mt-8 
-               space-x-8 md:space-x-0 list-none md:mr-2;
+        @apply hidden lg:flex lg:flex-col lg:items-end lg:space-y-4 list-none lg:pr-14;
     }
     
     .nav-link {
-        @apply text-gray-300 hover:text-pink-accent font-medium text-lg 
-               transition-colors duration-300 cursor-pointer bg-transparent border-0;
-    }
-    /* Mobile menu wrapper */
-    .mobile-menu-wrapper {
-        @apply relative md:hidden;
+        @apply text-gray-300 hover:text-pink-accent font-medium text-lg
+        transition-colors duration-300 cursor-pointer bg-transparent border-0;
     }
 
-    /* hamburger button */
-    .mobile-menu-btn {
-        @apply flex md:hidden text-light-gray hover:text-pink-accent p-2 
-               transition-colors duration-300 bg-transparent border-0;
+    .social-links {
+        @apply hidden lg:flex lg:flex-col lg:items-end lg:space-y-3 list-none;
+    }
+    
+    .social-link {
+        @apply text-gray-300 hover:text-pink-accent transition-colors duration-300 
+        cursor-pointer bg-transparent text-4xl;
     }
 
-    .mobile-menu {
-        @apply absolute top-full right-0 mt-2 w-48 bg-card-bg 
-               border border-light-gray rounded-lg shadow-lg z-50;
-    }
+    
 
-    /* Mobile links container */
-    .mobile-links {
-        @apply py-2 space-y-1 list-none;
-    }
-
-    .mobile-links .nav-link {
-        @apply block px-4 py-3 text-left w-full;
-    }
-
+    
     /* Hero */
     .hero-container {
         @apply flex flex-col items-center justify-center space-y-8 min-h-screen;

@@ -11,13 +11,20 @@ import { Sparkles } from './components/sparkles.js';
 const sparkles = new Sparkles();
 sparkles.render();
 
-// render nav
+// social data
+const socialData = [
+    { platform: "Github", link: "https://github.com/dpoppe7"},
+    { platform: "Linkedin", link: "https://www.linkedin.com/in/devpopd/"},
+    { platform: "Codepen", link: "https://codepen.io/DamarisP"},
+]; 
+
+// nav links
 const navLinks = [
     { text: "Projects", page: "#projects" },
     { text: "fun", page: "#fun" }
 ];
 
-const nav = new Nav(navLinks);
+const nav = new Nav(navLinks, socialData);
 nav.render();
 
 // render hero
@@ -116,14 +123,6 @@ async function loadFunProjects() {
 loadFunProjects();
 
 
-//Render social links array
-const socials = [
-    new Social("Github", "https://github.com/me/portfolio", "./src/assets/icon.svg"),
-    new Social("Twitter", "https://github.com/me/portfolio", "./src/assets/icon.svg"),
-    new Social("Linkedin", "https://github.com/me/portfolio", "./src/assets/icon.svg"),
-]; 
-
-Social.renderSocialLinks(socials);
 
 //Render blog posts  array
 // Consider this syntax for now
