@@ -10,7 +10,7 @@ export class FunProject extends Repository {
         div.classList.add("group", "fun-project-card");
         
         div.innerHTML = `
-            <div class="relative cursor-default flex flex-col h-full p-8 bg-card-bg bg-opacity-50 rounded-2xl border border-pastel-yellow transition-all duration-300 hover:-translate-y-2 hover:bg-card-bg hover:bg-opacity-75">
+            <div class="relative cursor-default flex flex-col h-full p-8 bg-card-bg bg-opacity-50 rounded-2xl border border-pastel-yellow border-opacity-60 transition-all duration-300 hover:-translate-y-2 hover:bg-card-bg hover:bg-opacity-75 hover:border-opacity-100">
                 <!-- Card Header -->
                 <div class="flex justify-between items-start mb-6 -mt-5 pt-5 border-b-0">
                     <div class="folder-icon">

@@ -15,7 +15,7 @@ module.exports = {
         'dark-bg': '#000000',
         'card-bg': '#2A2825',
         'border-color': '#2a2f3e',
-        'pastel-yellow': '#fcf577',
+        'pastel-yellow': '#F9D68C',
 
         'green-bright': '#64ffda', // For folder icons and accents
         'lightest-navy': '#1e2332', // For hover states

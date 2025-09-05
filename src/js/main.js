@@ -76,7 +76,8 @@ async function loadProjects() {
 
         // Render projects
         // Calls the Render static method in Project Class, constructs it with params
-        Project.renderProjects(projects);
+        // Project.renderProjects(projects);
+        Project.renderSpotlightProjects(projects);
 
     } catch (error){
         console.error("Error fetching projects", error);
