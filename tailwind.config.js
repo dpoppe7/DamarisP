@@ -13,10 +13,17 @@ module.exports = {
         'light-gray': '#a2aabc',
         'dim-gray': '#686868',
         'dark-bg': '#000000',
-        'card-bg': '#1a1f2e',
+        'card-bg': '#2A2825',
         'border-color': '#2a2f3e',
-
         'pastel-yellow': '#fcf577',
+
+        'green-bright': '#64ffda', // For folder icons and accents
+        'lightest-navy': '#1e2332', // For hover states
+        'light-navy': '#1a1f2e', // Already exists as card-bg
+        'lightest-slate': '#ffffff', // For primary text
+        'slate': '#a2aabc', // Already exists as light-gray
+
+
         // 'pastel-orange': '#ffae57',
         
         // 'pastel-green': '#bae67e',
@@ -42,6 +49,12 @@ module.exports = {
         spinGradient: {
           to: { transform: 'rotate(360deg)' }
         }
+      },
+      spacing: {
+        '25': '6.25rem', // 100px equivalent for pt-25
+      },
+      boxShadow: {
+        '2xl': '0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)',
       }
     },
   },

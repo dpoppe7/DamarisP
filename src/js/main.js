@@ -120,7 +120,18 @@ async function loadFunProjects() {
         console.error("Error fetching fun projects", error);
     }
 }
-loadFunProjects();
+
+
+// Load projects 
+async function initializeProjects() {
+    // pinned projects (spotlight carousel)
+    await loadProjects();
+    await loadFunProjects();
+
+}
+
+initializeProjects();
+
 
 
 

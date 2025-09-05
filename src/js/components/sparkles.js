@@ -19,7 +19,7 @@ export class Sparkles {
   render() {
     const container = document.createElement("div");
     container.id = "sparkles";
-    container.className = "absolute inset-0 z-0 overflow-hidden pointer-events-none";
+    container.className = "fixed inset-0 z-0 overflow-hidden pointer-events-none";
 
     for (let i = 0; i < this.sparkleCount; i++) {
       const sparkle = document.createElement("div");
