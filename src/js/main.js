@@ -4,42 +4,27 @@ import { Project } from './components/project.js';
 import { Nav } from './components/nav.js';
 import { FunProject } from './components/fun.js';
 import { Sparkles } from './components/sparkles.js';
+import { config } from './config/app-config.js';
 
 // render the sparkles background
 const sparkles = new Sparkles();
 sparkles.render();
 
-// social data
-const socialData = [
-    { platform: "Github", link: "https://github.com/dpoppe7"},
-    { platform: "Linkedin", link: "https://www.linkedin.com/in/devpopd"},
-    { platform: "Codepen", link: "https://codepen.io/DamarisP"},
-]; 
-
-// nav links
-const navLinks = [
-    { text: "Projects", page: "#projects" }
-    // { text: "fun", page: "#fun" }
-];
+// Navigation items
+const socialData = config.social.links; // social data
+const navLinks = config.navigation.links; // nav links
 
 const nav = new Nav(navLinks, socialData);
 nav.render();
 
-// render hero
+// Hero Section
 const hero = new Hero(
-    "./src/assets/images/main_profile.JPG",
-    "Damaris Poppe", 
-    "Software Developer | Front-end/Back-end"
+    config.personal.profileImage,
+    config.personal.name, 
+    config.personal.tagline
 );
 hero.render();
 
-
-//array of projects
-// const projects = [
-//     new Project("Music Player", "Interactive music player", ["react"], "https://github.com/me/portfolio", "https://github.com/me/portfolio", "./src/assets/projectImage.png"),
-//     new Project("alarm", "productivity clockr", ["react", "twailwind"], "https://github.com/me/portfolio", "https://github.com/me/portfolio", "./src/assets/projectImage.png"),
-//     new Project("calculator", "calculator in the web", ["react", "vue"], "https://github.com/me/portfolio", "https://github.com/me/portfolio", "./src/assets/projectImage.png")
-// ];
 
 // Running this first in broswer to verify :
 //      the endpoin, insperct the data array (promise), later to be used in Projects Class
@@ -73,8 +58,7 @@ async function loadPinnedProjects() {
             repo.image || null
         )); 
 
-        // Render projects
-        // Calls the Render static method in Project Class, constructs it with params
+        // Render Pinned projects: Carousel with projects (spotlight projects)
         Project.renderSpotlightProjects(projects);
 
     } catch (error){
@@ -102,7 +86,7 @@ async function loadFunProjects() {
         // Filter repos that have "fun" topic
         const funRepos = repos.filter(repo => 
             repo.topics && repo.topics.some(topic => 
-                topic.toLowerCase().includes('fun')
+                topic.toLowerCase().includes(config.filters.funProjectTag)
             )
         );
 
@@ -117,7 +101,7 @@ async function loadFunProjects() {
 
         // console.log("All repo URLs:", funProjects.map(repo => repo.url));
 
-        // Render fun projects
+        // Render fun projects: Cards containing project name and description
         FunProject.renderFunProjects(funProjects);
 
     } catch (error){
@@ -128,10 +112,11 @@ async function loadFunProjects() {
 
 // Load projects 
 async function initializeProjects() {
-    // pinned projects (spotlight carousel)
+    // Will Render: pinned projects (spotlight carousel)
     await loadPinnedProjects();
-    await loadFunProjects();
 
+    // Will Render: other projects in cards (all projects that contain 'fun' tag) 
+    await loadFunProjects();
 }
 
 initializeProjects();

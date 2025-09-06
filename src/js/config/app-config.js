@@ -1,19 +1,12 @@
 // Client config (ES modules)
 export const config = {
-
-    // Personal Information
-    personal: {
-        name: 'Damaris Poppe',
-        tagline: 'Software Developer | Front-end/Back-end',
-        profileImage: './src/assets/images/main_profile.JPG',
-        footerGif: 'src/assets/girl.gif'
-    },
-
     // Social Media Links
     social: {
-        github: 'https://github.com/dpoppe7',
-        linkedin: 'https://www.linkedin.com/in/devpopd',
-        codepen: 'https://codepen.io/DamarisP'
+        links: [
+            { platform: "Github", link: "https://github.com/dpoppe7" },
+            { platform: "Linkedin", link: "https://www.linkedin.com/in/devpopd"} ,
+            { platform: "Codepen", link: "https://codepen.io/DamarisP"}
+        ]
     },
 
     // Navigation
@@ -22,6 +15,14 @@ export const config = {
             { text: 'Projects', page: '#projects' }
             // { text: 'Fun', page: '#fun' } // might add more sections/content on page
         ]
+    },
+
+    // Personal Information
+    personal: {
+        name: 'Damaris Poppe',
+        tagline: 'Software Developer | Front-end/Back-end',
+        profileImage: './src/assets/images/main_profile.JPG',
+        footerGif: 'src/assets/girl.gif'
     },
 
     // UI Configuration
@@ -40,7 +41,7 @@ export const config = {
         }
     },
 
-    // Content Filtering
+    // Content Filtering: display only the repos that have 'fun' as a topic
     // Usage: fun.js
     filters: {
         funProjectTag: 'fun'
