@@ -23,7 +23,6 @@ export const config = {
 
      // Default Values
     defaults: {
-        description: 'No description available',
         fallbackUrl: '#',
         imageAlt: 'Project preview',
         repoTopicsLimit: 8 // matching the API response 'topicsPerRepo: 8'

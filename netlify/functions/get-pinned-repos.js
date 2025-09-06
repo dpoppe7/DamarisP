@@ -1,16 +1,12 @@
 // =====================================
 // Simple fetch approach without Octokit
 // =====================================
+const { config, getConfig } = require('./config.js');
 
-async function getStandardRepoImage(repoName, defaultBranch = 'main') {
+async function getStandardRepoImage(repoName, defaultBranch = config.github.defaultBranch) {
   const githubToken = process.env.MY_GITHUB_TOKEN;
   
-  // Try preview.png first, then screenshot.png
-  const imagePaths = ['images/display1.png'];
-
-  // console.log(`Checking for images in ${repoName}...`);
-  
-  for (const path of imagePaths) {
+  for (const path of config.github.imagePaths) {
     try {
       const response = await fetch(
         `https://api.github.com/repos/dpoppe7/${repoName}/contents/${path}?ref=${defaultBranch}`,
@@ -67,8 +63,8 @@ export async function handler(event, context) {
     // GraphQL query
     const query = `
         query {
-            user(login: "dpoppe7") {
-                pinnedItems(first: 6, types: REPOSITORY) {
+            user(login: "${config.github.username}") {
+                pinnedItems(first: ${config.api.limits.pinnedRepos}, types: REPOSITORY) {
                     nodes {
                         ... on Repository {
                             name
@@ -78,7 +74,7 @@ export async function handler(event, context) {
                             defaultBranchRef {
                                 name
                             }
-                            repositoryTopics(first: 8) {
+                            repositoryTopics(first: ${config.api.limits.topicsPerRepo}) {
                                 nodes {
                                     topic {
                                         name
@@ -123,7 +119,7 @@ export async function handler(event, context) {
             pinnedRepos.map(async (repo) => {
                 const customImage = await getStandardRepoImage(
                     repo.name, 
-                    repo.defaultBranchRef?.name || 'main'
+                    repo.defaultBranchRef?.name || config.github.defaultBranch
                 );
 
                 const result = {
