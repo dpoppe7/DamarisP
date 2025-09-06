@@ -38,7 +38,7 @@ export class Project extends Repository {
                     <h3 class="text-4xl font-bold text-white mb-6 font-pixel capitalize">
                         ${this.name}
                     </h3>
-                    <p class="text-center text-base text-white mb-6 font-roboto font-medium leading-relaxed">
+                    <p class="text-center mb-6 leading-relaxed">
                         ${this.description}
                     </p>
                     
@@ -85,7 +85,7 @@ export class Project extends Repository {
         const carouselHTML = `
             <div class="spotlight-section mx-auto pt-25 max-w-[1000px] min-h-[50vh] px-4">
                 <div class="section-header mb-12">
-                    <span class="section-title text-center block text-light-gray font-roboto text-3xl">Projects</span>
+                    <h1 class="section-title text-start block">Projects</h1>
                 </div>
                 
                 <!-- Spotlight Carousel -->
@@ -134,7 +134,7 @@ export class Project extends Repository {
                 
                 // Add indicator
                 const indicator = document.createElement('button');
-                indicator.className = `w-5 h-1 rounded-full transition-colors duration-300 ${index === 0 ? 'bg-pastel-yellow' : 'bg-dim-gray'}`;
+                indicator.className = `w-5 h-1 rounded-full transition-colors duration-300 ${index === 0 ? 'bg-pink-accent' : 'bg-dim-gray'}`;
                 indicator.addEventListener('click', () => this.goToSlide(mount, index));
                 carouselIndicators.appendChild(indicator);
             });
@@ -166,7 +166,7 @@ export class Project extends Repository {
                 track.style.transform = `translateX(-${currentSlide * 100}%)`;
                 indicators.forEach((indicator, index) => {
                     indicator.className = `w-5 h-1  rounded-full transition-colors duration-300 ${
-                        index === currentSlide ? 'bg-pastel-yellow' : 'bg-dim-gray'
+                        index === currentSlide ? 'bg-pink-accent' : 'bg-dim-gray'
                     }`;
                 });
                 console.log('Updated to slide:', currentSlide); // Debug log

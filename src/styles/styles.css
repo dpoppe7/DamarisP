@@ -23,15 +23,15 @@
     }
 
     h1 {
-        @apply text-pink-accent font-medium text-5xl font-pixel;
+        @apply text-pink-accent font-medium md:text-5xl font-pixel;
     }
 
     h2 {
-        @apply text-light-gray font-normal text-2xl font-pixel;
+        @apply text-white font-normal md:text-2xl font-pixel;
     }
 
     p {
-        @apply text-white font-normal font-roboto;
+        @apply text-white font-normal font-roboto text-sm md:text-base;
     }
 }
 
@@ -113,6 +113,18 @@
         background-image: url('/src/assets/images/button.png');
         background-size: 100% 100%;
         background-repeat: no-repeat;
+    }
+
+    #footer {
+        @apply flex flex-col justify-center items-center h-72 lg:h-96;
+    }
+
+    .girl-gif {
+        @apply z-20 w-25 md:w-32 lg:w-40;
+    }
+
+    .made-by{
+        @apply text-light-gray mt-10;
     }
 }
 @media (max-width: 768px) {

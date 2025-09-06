@@ -10,7 +10,7 @@ export class FunProject extends Repository {
         div.classList.add("group", "fun-project-card");
         
         div.innerHTML = `
-            <div class="relative cursor-default flex flex-col h-full p-8 bg-card-bg bg-opacity-50 rounded-2xl border border-pastel-yellow border-opacity-60 transition-all duration-300 hover:-translate-y-2 hover:bg-card-bg hover:bg-opacity-75 hover:border-opacity-">
+            <div class="relative cursor-default flex flex-col h-full p-8 bg-card-bg bg-opacity-50 rounded-2xl border border-pastel-yellow border-opacity-60 transition-all duration-300 hover:-translate-y-2 hover:bg-card-bg hover:bg-opacity-75 hover:border-opacity-100">
                 <!-- Card Header -->
                 <div class="flex justify-between items-start mb-6 -mt-5 pt-5 border-b-0">
                     <div class="folder-icon">
@@ -30,7 +30,7 @@ export class FunProject extends Repository {
                 <h3 class="text-white text-2xl font-bold mb-4 font-roboto">
                     ${this.name}
                 </h3>
-                <p class="text-light-gray text-lg mb-10 flex-grow font-roboto leading-relaxed">
+                <p class="mb-10 flex-grow leading-relaxed">
                     ${this.description}
                 </p>
                 
@@ -53,7 +53,6 @@ export class FunProject extends Repository {
         // Create the container structure
         mount.innerHTML = `
             <div class="mx-auto pt-16 max-w-[1000px] min-h-[50vh] px-4">
-                <h2 class="text-center mb-12 text-light-gray font-roboto text-3xl">Fun Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Fun projects will be inserted here -->
                 </div>

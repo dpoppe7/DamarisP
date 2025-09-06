@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         'pink-accent': '#edabd2',
-        'light-gray': '#a2aabc',
+        'light-gray': '#8C8C8C',
         'dim-gray': '#686868',
         'dark-bg': '#000000',
         'card-bg': '#2A2825',
