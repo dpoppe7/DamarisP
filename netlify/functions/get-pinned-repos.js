@@ -2,6 +2,40 @@
 // Simple fetch approach without Octokit
 // =====================================
 
+async function getStandardRepoImage(repoName, defaultBranch = 'main') {
+  const githubToken = process.env.MY_GITHUB_TOKEN;
+  
+  // Try preview.png first, then screenshot.png
+  const imagePaths = ['images/display1.png'];
+
+  // console.log(`Checking for images in ${repoName}...`);
+  
+  for (const path of imagePaths) {
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/dpoppe7/${repoName}/contents/${path}?ref=${defaultBranch}`,
+        {
+          headers: {
+            'Authorization': `Bearer ${githubToken}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        }
+      );
+
+      if (response.ok) {
+        // console.log(`Found image for ${repoName}: ${path}`)
+        return `https://raw.githubusercontent.com/dpoppe7/${repoName}/${defaultBranch}/${path}`;
+      }
+      else {
+        console.log(`Not found - Image for ${repoName}, path: ${path}, (${response.status})`); // Debug log
+      }
+    } catch (error) {
+        console.log(`Error checking ${path}:`, error.message);
+    }
+  }
+  return null;
+}
+
 export async function handler(event, context) {
     // Add CORS headers
     const headers = {
@@ -40,7 +74,11 @@ export async function handler(event, context) {
                             name
                             description
                             updatedAt
-                            repositoryTopics(first: 5) {
+                            openGraphImageUrl
+                            defaultBranchRef {
+                                name
+                            }
+                            repositoryTopics(first: 6) {
                                 nodes {
                                     topic {
                                         name
@@ -81,13 +119,31 @@ export async function handler(event, context) {
         // Extract and transform the data
         const pinnedRepos = data.data.user.pinnedItems.nodes;
         
-        const transformedRepos = pinnedRepos.map(repo => ({
-            name: repo.name,
-            description: repo.description || 'No description available',
-            updated_at: repo.updatedAt,
-            topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
-            url: repo.url
-        }));
+        const transformedRepos = await Promise.all(
+            pinnedRepos.map(async (repo) => {
+                const customImage = await getStandardRepoImage(
+                    repo.name, 
+                    repo.defaultBranchRef?.name || 'main'
+                );
+
+                const result = {
+                    name: repo.name,
+                    description: repo.description || 'No description available',
+                    updated_at: repo.updatedAt,
+                    topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
+                    url: repo.url,
+                    image: customImage || repo.openGraphImageUrl || null
+                };
+
+                // console.log(`Final result for ${repo.name}:`, {
+                //     name: result.name,
+                //     hasImage: !!result.image,
+                //     imageUrl: result.image ? result.image.substring(0, 50) + '...' : 'none'
+                // });
+
+                return result;
+            })
+        );
 
         return {
             statusCode: 200,

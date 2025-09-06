@@ -12,7 +12,7 @@ sparkles.render();
 // social data
 const socialData = [
     { platform: "Github", link: "https://github.com/dpoppe7"},
-    { platform: "Linkedin", link: "https://www.linkedin.com/in/devpopd/"},
+    { platform: "Linkedin", link: "https://www.linkedin.com/in/devpopd"},
     { platform: "Codepen", link: "https://codepen.io/DamarisP"},
 ]; 
 
@@ -69,7 +69,8 @@ async function loadPinnedProjects() {
             repo.description || "No description available",
             repo.updated_at,
             repo.topics || [],
-            repo.url || repo.github_url || "#"
+            repo.url || repo.github_url || "#",
+            repo.image || null
         )); 
 
         // Render projects

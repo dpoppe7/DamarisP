@@ -1314,6 +1314,11 @@ p{
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.object-cover{
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .p-12{
   padding: 3rem;
 }
@@ -1369,11 +1374,6 @@ p{
   line-height: 2.5rem;
 }
 
-.text-sm{
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .font-bold{
   font-weight: 700;
 }
@@ -1414,8 +1414,8 @@ p{
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.opacity-20{
-  opacity: 0.2;
+.opacity-100{
+  opacity: 1;
 }
 
 .opacity-90{

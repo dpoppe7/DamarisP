@@ -16,8 +16,9 @@
 import { Repository } from './repository.js'; 
 
 export class Project extends Repository {
-    constructor(name, description, updated_at, topics, html_url){
+    constructor(name, description, updated_at, topics, html_url, image){
         super(name, description, updated_at, topics, html_url);
+        this.image = image; // only needed in this class for spotlight caroussel display
     }
 
 
@@ -29,8 +30,14 @@ export class Project extends Repository {
             <div class="relative flex justify-center w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.01] transition-transform duration-300">
                 <div class="absolute inset-0 bg-gradient-to-br from-card-bg opacity-90"></div>
                 
-                <!-- Image  -->
-                <div class="absolute inset-0 opacity-20">
+                <!-- Background Image -->
+                <div class="absolute inset-0 opacity-100">
+                    ${this.image ? `
+                        <img src="${this.image}" 
+                            alt="${this.name} preview" 
+                            class="w-full h-full object-cover"
+                            onerror="this.style.display='none';">
+                    ` : ''}
                 </div>
                 
                 <!-- Content -->
