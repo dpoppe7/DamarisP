@@ -27,18 +27,18 @@ export class FunProject extends Repository {
                 </div>
                 
                 <!-- Card Content -->
-                <h3 class="text-white text-2xl font-bold mb-4 font-roboto">
+                <h2 class="mb-4">
                     ${this.name}
-                </h3>
+                </h2>
                 <p class="mb-10 flex-grow leading-relaxed">
                     ${this.description}
                 </p>
                 
                 <!-- Topics/Tech Stack -->
                 ${this.topics && this.topics.length > 0 ? `
-                    <div class="text-light-gray text-base font-roboto">
-                        ${this.topics.join(', ')}
-                    </div>
+                    <p class="text-start font-bold text-pastel-yellow mb-8 font-inria uppercase tracking-wide">
+                        ${this.topics.join(' • ')}
+                    </p
                 ` : ''}
             </div>
         `;

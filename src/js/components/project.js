@@ -35,9 +35,9 @@ export class Project extends Repository {
                 
                 <!-- Content -->
                 <div class="relative z-10 p-12 h-full flex flex-col justify-center items-center max-w-2xl">
-                    <h3 class="text-4xl font-bold text-white mb-6 font-pixel capitalize">
+                    <h2 class="text-4xl font-bold text-white mb-6 font-pixel capitalize">
                         ${this.name}
-                    </h3>
+                    </h2>
                     <p class="text-center mb-6 leading-relaxed">
                         ${this.description}
                     </p>

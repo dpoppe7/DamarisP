@@ -585,6 +585,22 @@ h1{
 
 h2{
   font-family: "Jersey 15", monospace;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px){
+  h2{
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+h3{
+  font-family: "Jersey 15", monospace;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 400;
@@ -593,7 +609,7 @@ h2{
 }
 
 @media (min-width: 768px){
-  h2{
+  h3{
     font-size: 1.5rem;
     line-height: 2rem;
   }

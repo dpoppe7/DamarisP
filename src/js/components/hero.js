@@ -35,9 +35,9 @@ export class Hero {
                 <h1>
                     ${this.name}
                 </h1>
-                <h2>
+                <h3>
                     ${this.tagline}
-                </h2>
+                </h3>
 
                 <button class="button-custom">
                     View My Work
