@@ -95,6 +95,10 @@ async function loadFunProjects() {
 
         const repos = await response.json();
 
+        // Debug: Check raw data from API
+        // console.log("First repo structure:", repos[0]);
+        // console.log("First repo URL:", repos[0]?.url);
+
         // Filter repos that have "fun" topic
         const funRepos = repos.filter(repo => 
             repo.topics && repo.topics.some(topic => 
@@ -110,6 +114,8 @@ async function loadFunProjects() {
             repo.topics || [],
             repo.url || repo.github_url || "#"
         )); 
+
+        // console.log("All repo URLs:", funProjects.map(repo => repo.url));
 
         // Render fun projects
         FunProject.renderFunProjects(funProjects);

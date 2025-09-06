@@ -27,12 +27,12 @@ export async function handler(event, context) {
     const query = `
         query {
             user(login: "dpoppe7") {
-                repositories(first: 50, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
                     nodes {
                         name
                         description
                         updatedAt
-                        repositoryTopics(first: 10) {
+                        repositoryTopics(first: 8) {
                             nodes {
                                 topic {
                                     name
@@ -76,6 +76,8 @@ export async function handler(event, context) {
             topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
             url: repo.url
         }));
+
+        // console.log("All repo URLs:", transformedRepos.map(repo => repo.url))
 
         return {
             statusCode: 200,

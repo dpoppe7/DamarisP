@@ -1,8 +1,8 @@
 import { Repository } from './repository.js'; 
 
 export class FunProject extends Repository {
-    constructor(name, description, topics, html_url){
-        super(name, description, topics, html_url);
+    constructor(name, description, updated_at, topics, html_url){
+        super(name, description, updated_at, topics, html_url);
     }
 
     createElement(){
@@ -23,7 +23,7 @@ export class FunProject extends Repository {
                     </div>
                     <!-- GitHub Icon -->
                         <div>
-                            <a href="${this.link}" target="_blank" class="text-light-gray hover:text-pink-accent transition-colors duration-300">
+                            <a href="${this.html_url}" target="_blank" class="text-light-gray hover:text-pink-accent transition-colors duration-300">
                                 <i class="fab fa-github text-2xl"></i>
                             </a>
                     </div>

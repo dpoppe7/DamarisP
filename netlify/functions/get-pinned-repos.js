@@ -78,7 +78,7 @@ export async function handler(event, context) {
                             defaultBranchRef {
                                 name
                             }
-                            repositoryTopics(first: 6) {
+                            repositoryTopics(first: 8) {
                                 nodes {
                                     topic {
                                         name
