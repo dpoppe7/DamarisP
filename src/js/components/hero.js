@@ -40,17 +40,10 @@ export class Hero {
                 </h3>
 
                 <button class="button-custom">
-                    View My Work
+                    <a href="#projects">View My Work</a>
                 </button>
 
             </div>
         `;
-    }
-
-    animate() {
-        const mount = document.querySelector("#hero h1");
-        if (mount) {
-            mount.classList.add("animate-fade-in-up");
-        }
     }
 }

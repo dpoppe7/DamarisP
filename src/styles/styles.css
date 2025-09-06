@@ -13,7 +13,6 @@
 
 @layer utilities {
 
-
 }
 
 /* Base styles */
@@ -39,12 +38,27 @@
     }
 }
 
+/* Intro animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.intro-fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+    animation-delay: 2s;
+}
+
 @layer components {
     /* Nav Bar */
     /* Main nav container: horizontal on mobile, vertical on desktop right */
     .nav-container {
         @apply fixed top-0 left-0 right-0 h-16 flex justify-end items-center px-4 
-        bg-black z-50 shadow-lg; 
+        bg-black z-40 shadow-lg; 
 
         /* --- DESKTOP --- */
         @apply lg:fixed lg:top-auto lg:right-0 lg:left-auto lg:h-screen lg:w-36 
@@ -119,6 +133,7 @@
         background-repeat: no-repeat;
     }
 
+    /* Footer */
     #footer {
         @apply flex flex-col justify-center items-center h-72 lg:h-96;
     }
@@ -130,6 +145,8 @@
     .made-by{
         @apply text-light-gray mt-10;
     }
+
+    /* Animate */
 }
 @media (max-width: 768px) {
     .nav-container {

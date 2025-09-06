@@ -4,7 +4,12 @@ import { Project } from './components/project.js';
 import { Nav } from './components/nav.js';
 import { FunProject } from './components/fun.js';
 import { Sparkles } from './components/sparkles.js';
+import { IntroAnimation } from './components/intro.js';
 import { config } from './config/app-config.js';
+
+// render the intro animation
+const intro = new IntroAnimation();
+intro.render();
 
 // render the sparkles background
 const sparkles = new Sparkles();
@@ -27,8 +32,8 @@ hero.render();
 
 
 // Running this first in broswer to verify :
-//      the endpoin, insperct the data array (promise), later to be used in Projects Class
-// fetch is bilt-in broswer API for making network request. GET is the default HTTP mehtod for fetch
+//      the endpoint, inspect the data array (promise), later to be used in Projects Class
+//      fetch is bilt-in broswer API for making network request. GET is the default HTTP mehtod for fetch
 // ==================================================================
 // fetch('https://api.github.com/users/dpoppe7/repos')
 //     .then(res => res.json())
@@ -119,4 +124,13 @@ async function initializeProjects() {
     await loadFunProjects();
 }
 
-initializeProjects();
+async function main() {
+    // redners intro animation first, wait for it to complete.
+    const intro = new IntroAnimation();
+    await intro.render();
+
+    // then load all projects.
+    await initializeProjects();
+}
+
+main();

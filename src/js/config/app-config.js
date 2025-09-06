@@ -25,22 +25,6 @@ export const config = {
         footerGif: 'src/assets/girl.gif'
     },
 
-    // UI Configuration
-    ui: {
-        // Usage: Projects.js
-        carousel: {
-            autoSlide: true,
-            slideInterval: 5000,
-            transitionDuration: 500
-        },
-
-        breakpoints: {
-            mobile: 768,
-            tablet: 1024,
-            desktop: 1200
-        }
-    },
-
     // Content Filtering: display only the repos that have 'fun' as a topic
     // Usage: fun.js
     filters: {
