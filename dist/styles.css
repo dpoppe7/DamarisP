@@ -569,6 +569,8 @@ a:hover{
 
 h1{
   font-family: "Jersey 15", monospace;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
   font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(237 171 210 / var(--tw-text-opacity, 1));
@@ -583,6 +585,8 @@ h1{
 
 h2{
   font-family: "Jersey 15", monospace;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: 400;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
