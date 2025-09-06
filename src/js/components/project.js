@@ -44,7 +44,7 @@ export class Project extends Repository {
                 
                 <!-- Content -->
                 <div class="relative z-10 p-12 h-full flex flex-col justify-end items-center space-y-3 max-w-2xl">
-                    <h2 class="text-4xl font-bold text-white ont-pixel capitalize">
+                    <h2 class="text-center font-bold text-white capitalize">
                         ${this.name.replace(/-/g, ' ')}
                     </h2>
                     <p class="text-center eading-relaxed">
@@ -63,7 +63,7 @@ export class Project extends Repository {
                         <!-- Live Demo Icon -->
                         <div class="link-icon">
                             <a href="${this.live_url}" target="_blank" rel="noopener noreferrer" class="text-pink-accent hover:text-light-gray transition-colors duration-300">
-                                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                 </svg>
                             </a>

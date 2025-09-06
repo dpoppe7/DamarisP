@@ -594,8 +594,8 @@ h2{
 
 @media (min-width: 768px){
   h2{
-    font-size: 3rem;
-    line-height: 1;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 
@@ -1160,6 +1160,14 @@ p{
   width: 100%;
 }
 
+.w-7{
+  width: 1.75rem;
+}
+
+.w-8{
+  width: 2rem;
+}
+
 .max-w-2xl{
   max-width: 42rem;
 }
@@ -1247,12 +1255,6 @@ p{
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-2 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-}
-
 .space-y-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1292,6 +1294,11 @@ p{
   --tw-border-opacity: 0.6;
 }
 
+.bg-black{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
 .bg-black\/50{
   background-color: rgb(0 0 0 / 0.5);
 }
@@ -1314,11 +1321,6 @@ p{
 .bg-pink-accent{
   --tw-bg-opacity: 1;
   background-color: rgb(237 171 210 / var(--tw-bg-opacity, 1));
-}
-
-.bg-black{
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-50{
@@ -1390,9 +1392,9 @@ p{
   line-height: 2rem;
 }
 
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold{
@@ -1439,12 +1441,12 @@ p{
   opacity: 1;
 }
 
-.opacity-90{
-  opacity: 0.9;
-}
-
 .opacity-60{
   opacity: 0.6;
+}
+
+.opacity-90{
+  opacity: 0.9;
 }
 
 .shadow{
