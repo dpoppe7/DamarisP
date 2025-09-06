@@ -41,23 +41,23 @@ export class Project extends Repository {
                 </div>
                 
                 <!-- Content -->
-                <div class="relative z-10 p-12 h-full flex flex-col justify-center items-center max-w-2xl">
-                    <h2 class="text-4xl font-bold text-white mb-6 font-pixel capitalize">
+                <div class="relative z-10 p-12 h-full flex flex-col justify-end items-center space-y-2 max-w-2xl">
+                    <h2 class="text-4xl font-bold text-white ont-pixel capitalize">
                         ${this.name.replace(/-/g, ' ')}
                     </h2>
-                    <p class="text-center mb-6 leading-relaxed">
+                    <p class="text-light-gray text-center eading-relaxed">
                         ${this.description}
                     </p>
                     
                     <!-- Tech Stack -->
                     ${this.topics && this.topics.length > 0 ? `
-                        <p class="text-center font-bold text-pastel-yellow mb-8 font-inria uppercase tracking-wide">
+                        <p class="text-center font-bold text-pastel-yellow font-inria uppercase tracking-wide">
                             ${this.topics.join(' • ')}
                         </p>
                     ` : ''}
 
                     <!-- link to Project Display -->
-                    <div class="flex justify-center items-center space-x-4 mb-6 -mt-5 pt-5 border-b-0">
+                    <div class="flex justify-center items-center space-x-4 pt-4 border-b-0">
                         <!-- Live Demo Icon -->
                         <div class="link-icon">
                             <a href="${this.live_url}" target="_blank" rel="noopener noreferrer" class="text-pink-accent hover:text-light-gray transition-colors duration-300">
