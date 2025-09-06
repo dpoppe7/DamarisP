@@ -8,6 +8,9 @@ export class FunProject extends Repository {
     createElement(){
         const div = document.createElement("div");
         div.classList.add("group", "fun-project-card");
+
+        // excludes the tag 'fun'
+        const filteredTopics = this.topics.filter(topic => topic.toLowerCase() !== 'fun');
         
         div.innerHTML = `
             <div class="relative cursor-default flex flex-col h-full p-8 bg-card-bg bg-opacity-50 rounded-2xl border border-pastel-yellow border-opacity-60 transition-all duration-300 hover:-translate-y-2 hover:bg-card-bg hover:bg-opacity-75 hover:border-opacity-100">
@@ -35,9 +38,9 @@ export class FunProject extends Repository {
                 </p>
                 
                 <!-- Topics/Tech Stack -->
-                ${this.topics && this.topics.length > 0 ? `
+                ${filteredTopics && filteredTopics.length > 0 ? `
                     <p class="text-start font-bold text-pastel-yellow mb-8 font-inria uppercase tracking-wide">
-                        ${this.topics.join(' • ')}
+                        ${filteredTopics.join(' • ')}
                     </p
                 ` : ''}
             </div>
