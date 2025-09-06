@@ -37,15 +37,17 @@ export class Project extends Repository {
                             alt="${this.name} preview" 
                             class="w-full h-full object-cover"
                             onerror="this.style.display='none';">
+
+                        <div class="absolute inset-0 bg-black opacity-60"></div>
                     ` : ''}
                 </div>
                 
                 <!-- Content -->
-                <div class="relative z-10 p-12 h-full flex flex-col justify-end items-center space-y-2 max-w-2xl">
+                <div class="relative z-10 p-12 h-full flex flex-col justify-end items-center space-y-3 max-w-2xl">
                     <h2 class="text-4xl font-bold text-white ont-pixel capitalize">
                         ${this.name.replace(/-/g, ' ')}
                     </h2>
-                    <p class="text-light-gray text-center eading-relaxed">
+                    <p class="text-center eading-relaxed">
                         ${this.description}
                     </p>
                     
