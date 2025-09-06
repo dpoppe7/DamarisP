@@ -2,6 +2,8 @@
 // Additional Netlify Function for All Repos
 // ============================
 
+const { config, getConfig } = require('./config.js');
+
 export async function handler(event, context) {
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -26,13 +28,13 @@ export async function handler(event, context) {
 
     const query = `
         query {
-            user(login: "dpoppe7") {
-                repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
+            user(login: "${config.github.username}") {
+                repositories(first: ${config.api.limits.allRepos}, orderBy: {field: UPDATED_AT, direction: DESC}) {
                     nodes {
                         name
                         description
                         updatedAt
-                        repositoryTopics(first: 8) {
+                        repositoryTopics(first: ${config.api.limits.topicsPerRepo}) {
                             nodes {
                                 topic {
                                     name
