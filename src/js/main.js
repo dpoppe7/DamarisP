@@ -18,8 +18,8 @@ const socialData = [
 
 // nav links
 const navLinks = [
-    { text: "Projects", page: "#projects" },
-    { text: "fun", page: "#fun" }
+    { text: "Projects", page: "#projects" }
+    // { text: "fun", page: "#fun" }
 ];
 
 const nav = new Nav(navLinks, socialData);

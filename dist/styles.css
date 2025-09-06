@@ -1124,10 +1124,6 @@ p{
   height: 1.5rem;
 }
 
-.h-9{
-  height: 2.25rem;
-}
-
 .h-\[500px\]{
   height: 500px;
 }
@@ -1152,20 +1148,16 @@ p{
   width: 1.5rem;
 }
 
-.w-9{
-  width: 2.25rem;
-}
-
-.w-full{
-  width: 100%;
-}
-
 .w-7{
   width: 1.75rem;
 }
 
 .w-8{
   width: 2rem;
+}
+
+.w-full{
+  width: 100%;
 }
 
 .max-w-2xl{
@@ -1390,11 +1382,6 @@ p{
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .font-bold{
