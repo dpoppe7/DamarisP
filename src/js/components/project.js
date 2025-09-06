@@ -36,7 +36,7 @@ export class Project extends Repository {
                 <!-- Content -->
                 <div class="relative z-10 p-12 h-full flex flex-col justify-center items-center max-w-2xl">
                     <h2 class="text-4xl font-bold text-white mb-6 font-pixel capitalize">
-                        ${this.name}
+                        ${this.name.replace(/-/g, ' ')}
                     </h2>
                     <p class="text-center mb-6 leading-relaxed">
                         ${this.description}
@@ -44,7 +44,7 @@ export class Project extends Repository {
                     
                     <!-- Tech Stack -->
                     ${this.topics && this.topics.length > 0 ? `
-                        <p class="text-center text-sm font-bold text-pastel-yellow mb-8 font-inria uppercase tracking-wide">
+                        <p class="text-center font-bold text-pastel-yellow mb-8 font-inria uppercase tracking-wide">
                             ${this.topics.join(' • ')}
                         </p>
                     ` : ''}

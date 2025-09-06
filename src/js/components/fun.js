@@ -31,7 +31,7 @@ export class FunProject extends Repository {
                 
                 <!-- Card Content -->
                 <h2 class="mb-4">
-                    ${this.name}
+                    ${this.name.replace(/-/g, ' ')}
                 </h2>
                 <p class="mb-10 flex-grow leading-relaxed">
                     ${this.description}
