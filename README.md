@@ -141,7 +141,7 @@ Add project preview images to each repository.
 your-repo/
 ├── images/
 │   ├── display1.png    # Primary carousel image (recommended: 1200x600px)
-│   └── preview.png     # Alternative names of image file, Caroussel is only displaying one (see project.js)
+│   └── display1.jpg     # Alternative names of image file, Caroussel is only displaying one (see project.js)
 └── README.md
 ```
 
