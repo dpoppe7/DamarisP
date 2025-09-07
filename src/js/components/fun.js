@@ -1,8 +1,8 @@
 import { Repository } from './repository.js'; 
 
 export class FunProject extends Repository {
-    constructor(name, description, updated_at, topics, html_url){
-        super(name, description, updated_at, topics, html_url);
+    constructor(name, description, updated_at, topics, html_url, homepage){
+        super(name, description, updated_at, topics, html_url, homepage);
     }
 
     createElement(){
@@ -21,11 +21,22 @@ export class FunProject extends Repository {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-5l-2-2H5a2 2 0 00-2 2z"></path>
                         </svg>
                     </div>
-                    <!-- GitHub Icon -->
+
+                    <!-- Live Demo Icon -->
+                    <div class="flex justify-end space-x-4 border-b-0">
+                        <div>
+                            <a href="${this.homepage}" target="_blank" rel="noopener noreferrer" class="text-light-gray hover:text-pink-accent transition-colors duration-300">
+                                <svg class="w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                            </div>
+                        <!-- GitHub Icon -->
                         <div>
                             <a href="${this.html_url}" target="_blank" class="text-light-gray hover:text-pink-accent transition-colors duration-300">
                                 <i class="fab fa-github text-2xl"></i>
                             </a>
+                        </div>
                     </div>
                 </div>
                 

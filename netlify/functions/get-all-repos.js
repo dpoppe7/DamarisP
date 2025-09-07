@@ -42,6 +42,7 @@ export async function handler(event, context) {
                             }
                         }
                         url
+                        homepageUrl
                     }
                 }
             }
@@ -76,7 +77,8 @@ export async function handler(event, context) {
             description: repo.description || 'No description available',
             updated_at: repo.updatedAt,
             topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
-            url: repo.url
+            url: repo.url,
+            homepage: repo.homepageUrl
         }));
 
         // console.log("All repo URLs:", transformedRepos.map(repo => repo.url))

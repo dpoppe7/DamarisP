@@ -64,6 +64,7 @@ async function loadPinnedProjects() {
             repo.updated_at,
             repo.topics || [],
             repo.url || repo.github_url || "#",
+            repo.homepage || repo.github_url || "#",
             repo.image || null
         )); 
 
@@ -72,7 +73,6 @@ async function loadPinnedProjects() {
 
     } catch (error){
         console.error("Error fetching projects", error);
-      
     }
 }
 
@@ -105,7 +105,8 @@ async function loadFunProjects() {
             repo.description || "No description available",
             repo.updated_at,
             repo.topics || [],
-            repo.url || repo.github_url || "#"
+            repo.url || repo.github_url || "#",
+            repo.homepage || repo.github_url || "#",
         )); 
 
         // console.log("All repo URLs:", funProjects.map(repo => repo.url));

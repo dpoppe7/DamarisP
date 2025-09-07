@@ -82,6 +82,7 @@ export async function handler(event, context) {
                                 }
                             }
                             url
+                            homepageUrl
                         }
                     }
                 }
@@ -128,8 +129,11 @@ export async function handler(event, context) {
                     updated_at: repo.updatedAt,
                     topics: repo.repositoryTopics.nodes.map(t => t.topic.name),
                     url: repo.url,
+                    homepage: repo.homepageUrl,
                     image: customImage || repo.openGraphImageUrl || null
                 };
+
+                console.log(`Final result for ${repo.homepageUrl}:`);
 
                 // console.log(`Final result for ${repo.name}:`, {
                 //     name: result.name,

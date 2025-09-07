@@ -16,8 +16,8 @@
 import { Repository } from './repository.js'; 
 
 export class Project extends Repository {
-    constructor(name, description, updated_at, topics, html_url, image){
-        super(name, description, updated_at, topics, html_url);
+    constructor(name, description, updated_at, topics, html_url, homepage, image){
+        super(name, description, updated_at, topics, html_url, homepage);
         this.image = image; // only needed in this class for spotlight caroussel display
     }
 
@@ -62,7 +62,7 @@ export class Project extends Repository {
                     <div class="flex justify-center items-center space-x-4 pt-4 border-b-0">
                         <!-- Live Demo Icon -->
                         <div class="link-icon">
-                            <a href="${this.live_url}" target="_blank" rel="noopener noreferrer" class="text-pink-accent hover:text-light-gray transition-colors duration-300">
+                            <a href="${this.homepage}" target="_blank" rel="noopener noreferrer" class="text-pink-accent hover:text-light-gray transition-colors duration-300">
                                 <svg class="w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                 </svg>

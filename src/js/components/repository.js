@@ -4,12 +4,13 @@
 
 
 export class Repository {
-    constructor(name, description, updated_at, topics, html_url){
+    constructor(name, description, updated_at, topics, html_url, homepage){
         this.name = name;
         this.description = description;
         this.updated_at = updated_at;
         this.topics = topics; // Array
         this.html_url = html_url;
+        this.homepage = homepage;
     }
 
     getFormattedDate(){
