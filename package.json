@@ -2,7 +2,9 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npx tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --watch\" \"netlify dev\"",
-    "build": "npx tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --minify",
+    "build": "npm run build:css && cp -r src dist/src",
+    "watch:css": "npx tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --watch",
+    "build:css": "npx tailwindcss -i ./src/styles/styles.css -o ./dist/styles.css --minify",
     "start": "netlify dev"
   },
   "devDependencies": {
