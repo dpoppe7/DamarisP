@@ -5,7 +5,7 @@
 ## Live Demo
 [View Portfolio](https://damarisc.netlify.app)
 
-![project display image](images/display1.jpg)
+<img src="images/display1.png" alt="Display 1" width="500" height="300">
 
 
 ## ✨ Features
