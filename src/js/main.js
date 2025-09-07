@@ -5,6 +5,7 @@ import { Nav } from './components/nav.js';
 import { FunProject } from './components/fun.js';
 import { Sparkles } from './components/sparkles.js';
 import { IntroAnimation } from './components/intro.js';
+import { Footer } from './components/footer.js';
 import { config } from './config/app-config.js';
 
 // render the intro animation
@@ -29,6 +30,9 @@ const hero = new Hero(
     config.personal.tagline
 );
 hero.render();
+
+const footer = new Footer();
+footer.render();
 
 
 // Running this first in broswer to verify :
