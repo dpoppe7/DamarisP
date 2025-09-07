@@ -3,7 +3,9 @@ const config = {
     // github configuration
     github: {
         username: 'dpoppe7',
-        // image Paths: location in a github repo contwining the "display" image for such project, image that shows on carrousel (project.js)
+        // image Paths: imagePaths are locations in a github repo containing the image that will be the "display" for such project. 
+        // These are the names supported when retrieving an image file that display on carrousel (project.js).
+        // if desider change the location buth the image for a project should exist there (currently 'images' folder is in root).
         imagePaths: ['images/display1.png', 'images/preview.png'], 
         defaultBranch: 'main'
     },
