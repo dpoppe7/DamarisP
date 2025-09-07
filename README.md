@@ -5,6 +5,9 @@
 ## Live Demo
 [View Portfolio](https://damarisc.netlify.app)
 
+![project display image](images/display1.jpg)
+
+
 ## ✨ Features
 
 - **Dynamic GitHub Integration**: Automatically fetches and displays pinned repositories and projects tagged with 'fun'
