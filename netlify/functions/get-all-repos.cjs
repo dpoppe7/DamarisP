@@ -2,9 +2,9 @@
 // Additional Netlify Function for All Repos
 // ============================
 
-const { config, getConfig } = require('./config.js');
+const { config } = require('./config.cjs');
 
-export async function handler(event, context) {
+exports.handler = async(event, context) => {
     const headers = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization',

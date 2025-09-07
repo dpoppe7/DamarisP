@@ -1,7 +1,7 @@
 // =====================================
 // Simple fetch approach without Octokit
 // =====================================
-const { config, getConfig } = require('./config.js');
+const { config } = require('./config.cjs');
 
 async function getStandardRepoImage(repoName, defaultBranch = config.github.defaultBranch) {
   const githubToken = process.env.MY_GITHUB_TOKEN;
@@ -32,7 +32,7 @@ async function getStandardRepoImage(repoName, defaultBranch = config.github.defa
   return null;
 }
 
-export async function handler(event, context) {
+exports.handler = async (event, context) => {
     // Add CORS headers
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -133,7 +133,7 @@ export async function handler(event, context) {
                     image: customImage || repo.openGraphImageUrl || null
                 };
 
-                console.log(`Final result for ${repo.homepageUrl}:`);
+                // console.log(`Homepage link or demo link: ${repo.homepageUrl}:`);
 
                 // console.log(`Final result for ${repo.name}:`, {
                 //     name: result.name,
