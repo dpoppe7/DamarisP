@@ -114,8 +114,6 @@ async function loadFunProjects() {
     }
 }
 
-
-// Load projects 
 async function initializeProjects() {
     // Will Render: pinned projects (spotlight carousel)
     await loadPinnedProjects();
@@ -131,6 +129,19 @@ async function main() {
 
     // then load all projects.
     await initializeProjects();
+
+    //when reload, checks if url cointains a hash (another position in page) and scrolls to it smoothly
+    const hash = window.location.hash;
+
+    if (hash){
+        const element = document.getElementById(hash.substring(1)); // takes whatever comes after #
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 }
 
-main();
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0); // ensuring page reload to top of page hero section.
+    main();
+});

@@ -27,10 +27,9 @@ export class Hero {
         mount.innerHTML = `
             <div class="hero-container">
                 <div class="img-wrapper">
-                <div class="border-spin"></div>
-                <img class="hero-profile-img" src="${this.profile_image}" alt="profile image">
+                    <div class="border-spin"></div>
+                    <img class="hero-profile-img" src="${this.profile_image}" alt="profile image">
                 </div>
-                
                 
                 <h1>
                     ${this.name}
